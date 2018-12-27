@@ -6,14 +6,14 @@
 
 | Project              | Repo                  | Docs                                    | Contrib
 | :-                   | :-                    | :-                                      | :-
-| APM Server           | [apm-server][]        | [📘 elastic.co][apm-server-docs]        | [📂 contrib](apm-server-contrib)
-| APM UI               | [apm-ui][]            | [📘 elastic.co][apm-ui-docs]            | [📂 contrib](apm-ui-contrib)
-| Go Agent             | [apm-agent-go][]      | [📘 elastic.co][apm-agent-go-docs]      | [📂 contrib](apm-agent-go-contrib)
-| Java Agent           | [apm-agent-java][]    | [📘 elastic.co][apm-agent-java-docs]    | [📂 contrib](apm-agent-java-contrib)
-| JavaScript RUM Agent | [apm-agent-js-base][] | [📘 elastic.co][apm-agent-js-base-docs] | [📂 contrib](apm-agent-js-base-contrib)
-| Node.js Agent        | [apm-agent-nodejs][]  | [📘 elastic.co][apm-agent-nodejs-docs]  | [📂 contrib](apm-agent-nodejs-contrib)
-| Python Agent         | [apm-agent-python][]  | [📘 elastic.co][apm-agent-python-docs]  | [📂 contrib](apm-agent-python-contrib)
-| Ruby Agent           | [apm-agent-ruby][]    | [📘 elastic.co][apm-agent-ruby-docs]    | [📂 contrib](apm-agent-ruby-contrib)
+| APM Server           | [apm-server][]        | [📘 elastic.co][apm-server-docs]        | [📂 contrib](apm-server)
+| APM UI               | [apm-ui][]            | [📘 elastic.co][apm-ui-docs]            | [📂 contrib](apm-ui)
+| Go Agent             | [apm-agent-go][]      | [📘 elastic.co][apm-agent-go-docs]      | [📂 contrib](apm-agent-go)
+| Java Agent           | [apm-agent-java][]    | [📘 elastic.co][apm-agent-java-docs]    | [📂 contrib](apm-agent-java)
+| JavaScript RUM Agent | [apm-agent-js-base][] | [📘 elastic.co][apm-agent-js-base-docs] | [📂 contrib](apm-agent-js-base)
+| Node.js Agent        | [apm-agent-nodejs][]  | [📘 elastic.co][apm-agent-nodejs-docs]  | [📂 contrib](apm-agent-nodejs)
+| Python Agent         | [apm-agent-python][]  | [📘 elastic.co][apm-agent-python-docs]  | [📂 contrib](apm-agent-python)
+| Ruby Agent           | [apm-agent-ruby][]    | [📘 elastic.co][apm-agent-ruby-docs]    | [📂 contrib](apm-agent-ruby)
 
 ## APM Contrib Repository
 
