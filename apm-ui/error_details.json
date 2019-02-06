@@ -1,0 +1,59 @@
+[{
+    "_source": {
+        "description": "",
+        "hits": 0,
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": "{\"filter\": [], \"highlightAll\": true, \"version\": true, \"query\": {\"language\": \"lucene\", \"query\": \"\"}}"
+        },
+        "optionsJSON": "{\"darkTheme\": false}",
+        "panelsJSON": "[{\"size_x\": 12, \"size_y\": 3, \"id\": \"c618e4e0-7c69-11e7-aa55-3b0d52c71c60\", \"panelIndex\": 1, \"row\": 1, \"col\": 1, \"type\": \"visualization\"}, {\"size_x\": 12, \"sort\": [\"@timestamp\", \"desc\"], \"size_y\": 21, \"id\": \"ceefd050-7c6a-11e7-aa55-3b0d52c71c60\", \"columns\": [\"error.culprit\", \"error.exception.type\", \"error.exception.message\", \"error.log.message\", \"error.exception.handled\", \"context.service.name\"], \"panelIndex\": 2, \"row\": 4, \"col\": 1, \"type\": \"search\"}]",
+        "timeRestore": false,
+        "title": "[APM] Error Details",
+        "uiStateJSON": "{}",
+        "version": 1
+    },
+    "_id": "5f08a870-7c6a-11e7-aa55-3b0d52c71c60",
+    "_type": "dashboard",
+    "version": 1
+},
+{
+    "_source": {
+        "description": "",
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": "{\"index\": \"apm-*\", \"query\": {\"language\": \"lucene\", \"query\": \"\"}}"
+        },
+        "title": "Error Occurrences [APM]",
+        "uiStateJSON": "{}",
+        "version": 1,
+        "visState": "{\"type\": \"metrics\", \"title\": \"Error Occurrences [APM]\", \"aggs\": [], \"params\": {\"filter\": \"processor.event:error\", \"type\": \"timeseries\", \"show_grid\": 1, \"interval\": \">=1m\", \"axis_position\": \"left\", \"time_field\": \"@timestamp\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"show_legend\": 0, \"series\": [{\"label\": \"Occurrences\", \"formatter\": \"number\", \"terms_field\": \"error.grouping_key\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"color\": \"rgba(0,156,224,1)\", \"stacked\": \"none\", \"line_width\": \"0\", \"fill\": \"1\", \"seperate_axis\": 0, \"axis_position\": \"right\", \"metrics\": [{\"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"type\": \"count\"}], \"chart_type\": \"bar\", \"point_size\": 1, \"split_mode\": \"terms\"}], \"axis_formatter\": \"number\"}}"
+    },
+    "_id": "c618e4e0-7c69-11e7-aa55-3b0d52c71c60",
+    "_type": "visualization",
+    "version": 1
+},
+{
+    "_source": {
+        "columns": [
+            "error.culprit",
+            "error.exception.type",
+            "error.exception.message",
+            "error.log.message",
+            "error.exception.handled",
+            "context.service.name"
+        ],
+        "description": "",
+        "hits": 0,
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": "{\"filter\": [{\"$state\": {\"store\": \"appState\"}, \"meta\": {\"value\": \"error\", \"disabled\": false, \"key\": \"processor.event\", \"negate\": false, \"type\": \"phrase\", \"alias\": null, \"index\": \"apm-*\", \"params\": {\"type\": \"phrase\", \"query\": \"error\"}}, \"query\": {\"match\": {\"processor.event\": {\"type\": \"phrase\", \"query\": \"error\"}}}}], \"index\": \"apm-*\", \"query\": {\"language\": \"lucene\", \"query\": \"\"}, \"highlightAll\": true, \"version\": true}"
+        },
+        "sort": [
+            "@timestamp",
+            "desc"
+        ],
+        "title": "Error Details [APM]",
+        "version": 1
+    },
+    "_id": "ceefd050-7c6a-11e7-aa55-3b0d52c71c60",
+    "_type": "search",
+    "version": 1
+}]
