@@ -13,5 +13,8 @@ After importing, visit the [Dashboard](https://www.elastic.co/guide/en/kibana/cu
 
 [**java_metrics_dashboard.json**](java_metrics_dashboard.json)
 
-* bullet
-* bullet
+* Heap Allocations
+* Heap (used, committed, max)
+* Non-Heap (used, committed, max)
+* System memory
+* GC
