@@ -18,3 +18,5 @@ After importing, visit the [Dashboard](https://www.elastic.co/guide/en/kibana/cu
 * Non-Heap (used, committed, max)
 * System memory
 * GC
+
+![java_dashboard](https://user-images.githubusercontent.com/2163464/52718713-62c91c80-2fa4-11e9-9641-a92e7b39d3ff.png)
