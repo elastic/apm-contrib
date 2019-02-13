@@ -11,7 +11,8 @@ After importing, visit the [Dashboard](https://www.elastic.co/guide/en/kibana/cu
 
 ### Dashboards
 
-[**java_metrics_dashboard.json**](java_metrics_dashboard.json)
+[**java_metrics_dashboard_6.x.json**](java_metrics_dashboard_6.x.json) (when using APM Server 6.x)
+[**java_metrics_dashboard_7.x.json**](java_metrics_dashboard_7.x.json) (when using APM Server 7.x)
 
 * Heap Allocations
 * Heap (used, committed, max)
