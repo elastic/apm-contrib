@@ -11,7 +11,8 @@ After importing, visit the [Dashboard](https://www.elastic.co/guide/en/kibana/cu
 
 ### Dashboards
 
-[**java_metrics_dashboard.json**](java_metrics_dashboard.json)
+[**java_metrics_dashboard_6.x.json**](java_metrics_dashboard_6.x.json) (when using APM Server 6.x)
+[**java_metrics_dashboard_7.x.json**](java_metrics_dashboard_7.x.json) (when using APM Server 7.x)
 
 * Heap Allocations
 * Heap (used, committed, max)
@@ -19,4 +20,4 @@ After importing, visit the [Dashboard](https://www.elastic.co/guide/en/kibana/cu
 * System memory
 * GC
 
-![java_dashboard](https://user-images.githubusercontent.com/2163464/52718713-62c91c80-2fa4-11e9-9641-a92e7b39d3ff.png)
+![java_dashboard](https://user-images.githubusercontent.com/2163464/52721458-00731a80-2faa-11e9-824c-89224b01f895.png)
