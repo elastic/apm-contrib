@@ -1,81 +1,61 @@
 [
   {
     "_id": "41b5d920-7821-11e7-8c47-65b845b5cfb3",
-    "_type": "dashboard",
     "_source": {
-      "title": "[APM] Transactions",
-      "hits": 0,
       "description": "",
-      "panelsJSON": "[{\"panelIndex\":\"2\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":15,\"i\":\"2\"},\"version\":\"7.0.0\",\"panelRefName\":\"panel_0\"},{\"panelIndex\":\"3\",\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":15,\"i\":\"3\"},\"version\":\"7.0.0\",\"panelRefName\":\"panel_1\"}]",
-      "optionsJSON": "{\"darkTheme\":false}",
-      "version": 1,
-      "timeRestore": false,
+      "hits": 0,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"filter\":[],\"highlightAll\":true,\"version\":true,\"query\":{\"language\":\"lucene\",\"query\":\"\"}}"
-      }
-    },
-    "_migrationVersion": {
-      "dashboard": "7.0.0"
-    },
-    "_references": [
-      {
-        "name": "panel_0",
-        "type": "visualization",
-        "id": "09bcf890-7822-11e7-8c47-65b845b5cfb3"
+        "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"lucene\"}, \"version\": true, \"highlightAll\": true}"
       },
-      {
-        "name": "panel_1",
-        "type": "visualization",
-        "id": "55606a60-7823-11e7-8c47-65b845b5cfb3"
-      }
-    ]
+      "optionsJSON": "{\"darkTheme\": false}",
+      "panelsJSON": "[{\"type\": \"visualization\", \"id\": \"a2e199b0-7820-11e7-8c47-65b845b5cfb3\", \"size_x\": 12, \"size_y\": 10, \"panelIndex\": 1, \"col\": 1, \"row\": 4}, {\"type\": \"visualization\", \"id\": \"09bcf890-7822-11e7-8c47-65b845b5cfb3\", \"size_x\": 6, \"size_y\": 3, \"panelIndex\": 2, \"col\": 1, \"row\": 1}, {\"type\": \"visualization\", \"id\": \"55606a60-7823-11e7-8c47-65b845b5cfb3\", \"size_x\": 6, \"size_y\": 3, \"panelIndex\": 3, \"col\": 7, \"row\": 1}]",
+      "timeRestore": false,
+      "title": "[APM] Transactions",
+      "uiStateJSON": "{\"P-1\": {\"vis\": {\"params\": {\"sort\": {\"columnIndex\": null, \"direction\": null}}}}}",
+      "version": 1
+    },
+    "_type": "dashboard"
   },
   {
-    "_id": "55606a60-7823-11e7-8c47-65b845b5cfb3",
-    "_type": "visualization",
+    "_id": "a2e199b0-7820-11e7-8c47-65b845b5cfb3",
     "_source": {
-      "title": "Transaction Per Minute [APM]",
-      "visState": "{\"type\":\"metrics\",\"title\":\"Transaction Per Minute [APM]\",\"aggs\":[],\"params\":{\"type\":\"timeseries\",\"show_grid\":1,\"interval\":\">=1m\",\"axis_position\":\"left\",\"time_field\":\"@timestamp\",\"id\":\"61ca57f0-469d-11e7-af02-69e470af7417\",\"show_legend\":0,\"series\":[{\"label\":\"\",\"value_template\":\"{{value}} tpm\",\"formatter\":\"number\",\"terms_field\":\"transaction.result\",\"id\":\"61ca57f1-469d-11e7-af02-69e470af7417\",\"color\":\"rgba(115,216,255,1)\",\"stacked\":\"none\",\"line_width\":\"2\",\"fill\":\"0\",\"seperate_axis\":0,\"axis_position\":\"right\",\"metrics\":[{\"id\":\"61ca57f2-469d-11e7-af02-69e470af7417\",\"type\":\"cardinality\",\"field\":\"transaction.id\"},{\"id\":\"3fcaa6c0-7828-11e7-bb25-2ff6dee07a1b\",\"type\":\"cumulative_sum\",\"field\":\"61ca57f2-469d-11e7-af02-69e470af7417\"},{\"id\":\"467f1cd0-7828-11e7-bb25-2ff6dee07a1b\",\"type\":\"derivative\",\"field\":\"3fcaa6c0-7828-11e7-bb25-2ff6dee07a1b\",\"unit\":\"1m\"},{\"id\":\"4bd1b8f0-7828-11e7-bb25-2ff6dee07a1b\",\"type\":\"positive_only\",\"field\":\"467f1cd0-7828-11e7-bb25-2ff6dee07a1b\",\"unit\":\"\"}],\"chart_type\":\"line\",\"point_size\":\"0\",\"split_mode\":\"everything\"}],\"axis_formatter\":\"number\"}}",
-      "uiStateJSON": "{}",
       "description": "",
-      "version": 1,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
-      }
+        "searchSourceJSON": "{\"filter\": [], \"index\": \"apm-*\", \"query\": {\"query\": \"\", \"language\": \"lucene\"}}"
+      },
+      "title": "Top Transactions for Time Period [APM]",
+      "uiStateJSON": "{\"vis\": {\"params\": {\"sort\": {\"columnIndex\": null, \"direction\": null}}}}",
+      "version": 1,
+      "visState": "{\"type\": \"table\", \"params\": {\"sort\": {\"columnIndex\": null, \"direction\": null}, \"perPage\": 25, \"showPartialRows\": false, \"totalFunc\": \"sum\", \"showTotal\": false, \"showMeticsAtAllLevels\": false}, \"aggs\": [{\"params\": {\"orderBy\": \"1\", \"field\": \"transaction.name.keyword\", \"customLabel\": \"Transaction\", \"order\": \"desc\", \"size\": 1000}, \"type\": \"terms\", \"enabled\": true, \"id\": \"2\", \"schema\": \"bucket\"}, {\"params\": {\"sortField\": \"@timestamp\", \"customLabel\": \"Type\", \"field\": \"transaction.type\", \"sortOrder\": \"desc\", \"aggregate\": \"concat\", \"size\": 1}, \"type\": \"top_hits\", \"enabled\": true, \"id\": \"5\", \"schema\": \"metric\"}, {\"params\": {\"field\": \"transaction.duration.us\", \"customLabel\": \"Avg. Resp Time (ms)\"}, \"type\": \"avg\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\"}, {\"params\": {\"field\": \"transaction.duration.us\", \"customLabel\": \"Resp Time (ms)\", \"percents\": [95]}, \"type\": \"percentiles\", \"enabled\": true, \"id\": \"3\", \"schema\": \"metric\"}, {\"params\": {\"sortField\": \"@timestamp\", \"customLabel\": \"View Spans\", \"field\": \"transaction.id\", \"sortOrder\": \"desc\", \"aggregate\": \"concat\", \"size\": 1}, \"type\": \"top_hits\", \"enabled\": true, \"id\": \"4\", \"schema\": \"metric\"}], \"title\": \"Top Transactions for Time Period [APM]\"}"
     },
-    "_migrationVersion": {
-      "visualization": "7.0.0"
-    },
-    "_references": [
-      {
-        "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
-        "type": "index-pattern",
-        "id": "apm-*"
-      }
-    ]
+    "_type": "visualization"
   },
   {
     "_id": "09bcf890-7822-11e7-8c47-65b845b5cfb3",
-    "_type": "visualization",
     "_source": {
-      "title": "Transaction Times [APM]",
-      "visState": "{\"type\":\"metrics\",\"title\":\"Transaction Times [APM]\",\"aggs\":[],\"params\":{\"type\":\"timeseries\",\"show_grid\":1,\"interval\":\">=1m\",\"axis_position\":\"left\",\"time_field\":\"@timestamp\",\"id\":\"61ca57f0-469d-11e7-af02-69e470af7417\",\"legend_position\":\"right\",\"show_legend\":1,\"series\":[{\"label\":\"Average\",\"value_template\":\"{{value}} ms\",\"formatter\":\"us,ms,0\",\"id\":\"61ca57f1-469d-11e7-af02-69e470af7417\",\"color\":\"rgba(0,156,224,1)\",\"stacked\":\"none\",\"line_width\":\"2\",\"fill\":\"0\",\"seperate_axis\":0,\"axis_position\":\"right\",\"metrics\":[{\"id\":\"61ca57f2-469d-11e7-af02-69e470af7417\",\"type\":\"avg\",\"field\":\"transaction.duration.us\"}],\"chart_type\":\"line\",\"point_size\":1,\"split_mode\":\"everything\"},{\"label\":\"95th Percentile\",\"value_template\":\"{{value}} ms\",\"formatter\":\"us,ms,0\",\"id\":\"79921480-7821-11e7-8745-07eaffcb65e5\",\"color\":\"rgba(115,216,255,1)\",\"stacked\":\"none\",\"line_width\":1,\"fill\":0.5,\"seperate_axis\":0,\"axis_position\":\"right\",\"metrics\":[{\"id\":\"79921481-7821-11e7-8745-07eaffcb65e5\",\"type\":\"percentile\",\"percentiles\":[{\"id\":\"858ec670-7821-11e7-8745-07eaffcb65e5\",\"value\":\"95\",\"percentile\":\"\",\"shade\":0.2,\"mode\":\"line\"}],\"field\":\"transaction.duration.us\"}],\"chart_type\":\"line\",\"point_size\":1,\"split_mode\":\"everything\"},{\"label\":\"99th Percentile\",\"value_template\":\"{{value}} ms\",\"formatter\":\"us,ms,0\",\"id\":\"c1e42de0-7821-11e7-8745-07eaffcb65e5\",\"color\":\"rgba(254,146,0,1)\",\"stacked\":\"none\",\"line_width\":\"2\",\"fill\":\"0\",\"seperate_axis\":0,\"axis_position\":\"right\",\"metrics\":[{\"id\":\"c1e42de1-7821-11e7-8745-07eaffcb65e5\",\"type\":\"percentile\",\"percentiles\":[{\"id\":\"858ec670-7821-11e7-8745-07eaffcb65e5\",\"value\":\"99\",\"percentile\":\"\",\"shade\":0.2,\"mode\":\"line\"}],\"field\":\"transaction.duration.us\"}],\"chart_type\":\"line\",\"point_size\":1,\"split_mode\":\"everything\"}],\"axis_formatter\":\"number\"}}",
-      "uiStateJSON": "{}",
       "description": "",
-      "version": 1,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
-      }
+        "searchSourceJSON": "{\"index\": \"apm-*\", \"query\": {\"query\": \"\", \"language\": \"lucene\"}}"
+      },
+      "title": "Transaction Times [APM]",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "visState": "{\"params\": {\"time_field\": \"@timestamp\", \"series\": [{\"line_width\": \"2\", \"point_size\": 1, \"color\": \"rgba(0,156,224,1)\", \"value_template\": \"{{value}} ms\", \"label\": \"Average\", \"metrics\": [{\"field\": \"transaction.duration.us\", \"type\": \"avg\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"seperate_axis\": 0, \"split_mode\": \"everything\", \"chart_type\": \"line\", \"stacked\": \"none\", \"axis_position\": \"right\", \"formatter\": \"us,ms,0\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"fill\": \"0\"}, {\"line_width\": 1, \"point_size\": 1, \"color\": \"rgba(115,216,255,1)\", \"value_template\": \"{{value}} ms\", \"label\": \"95th Percentile\", \"metrics\": [{\"field\": \"transaction.duration.us\", \"percentiles\": [{\"mode\": \"line\", \"percentile\": \"\", \"shade\": 0.2, \"value\": \"95\", \"id\": \"858ec670-7821-11e7-8745-07eaffcb65e5\"}], \"type\": \"percentile\", \"id\": \"79921481-7821-11e7-8745-07eaffcb65e5\"}], \"seperate_axis\": 0, \"split_mode\": \"everything\", \"chart_type\": \"line\", \"stacked\": \"none\", \"axis_position\": \"right\", \"formatter\": \"us,ms,0\", \"id\": \"79921480-7821-11e7-8745-07eaffcb65e5\", \"fill\": 0.5}, {\"line_width\": \"2\", \"point_size\": 1, \"color\": \"rgba(254,146,0,1)\", \"value_template\": \"{{value}} ms\", \"label\": \"99th Percentile\", \"metrics\": [{\"field\": \"transaction.duration.us\", \"percentiles\": [{\"mode\": \"line\", \"percentile\": \"\", \"shade\": 0.2, \"value\": \"99\", \"id\": \"858ec670-7821-11e7-8745-07eaffcb65e5\"}], \"type\": \"percentile\", \"id\": \"c1e42de1-7821-11e7-8745-07eaffcb65e5\"}], \"seperate_axis\": 0, \"split_mode\": \"everything\", \"chart_type\": \"line\", \"stacked\": \"none\", \"axis_position\": \"right\", \"formatter\": \"us,ms,0\", \"id\": \"c1e42de0-7821-11e7-8745-07eaffcb65e5\", \"fill\": \"0\"}], \"axis_formatter\": \"number\", \"interval\": \">=1m\", \"show_legend\": 1, \"show_grid\": 1, \"legend_position\": \"right\", \"axis_position\": \"left\", \"type\": \"timeseries\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\"}, \"type\": \"metrics\", \"aggs\": [], \"title\": \"Transaction Times [APM]\"}"
     },
-    "_migrationVersion": {
-      "visualization": "7.0.0"
+    "_type": "visualization"
+  },
+  {
+    "_id": "55606a60-7823-11e7-8c47-65b845b5cfb3",
+    "_source": {
+      "description": "",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\": \"apm-*\", \"query\": {\"query\": \"\", \"language\": \"lucene\"}}"
+      },
+      "title": "Transaction Per Minute [APM]",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "visState": "{\"params\": {\"time_field\": \"@timestamp\", \"series\": [{\"line_width\": \"2\", \"terms_field\": \"transaction.result\", \"point_size\": \"0\", \"color\": \"rgba(115,216,255,1)\", \"value_template\": \"{{value}} tpm\", \"label\": \"\", \"metrics\": [{\"field\": \"transaction.id\", \"type\": \"cardinality\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}, {\"field\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"type\": \"cumulative_sum\", \"id\": \"3fcaa6c0-7828-11e7-bb25-2ff6dee07a1b\"}, {\"field\": \"3fcaa6c0-7828-11e7-bb25-2ff6dee07a1b\", \"type\": \"derivative\", \"id\": \"467f1cd0-7828-11e7-bb25-2ff6dee07a1b\", \"unit\": \"1m\"}, {\"field\": \"467f1cd0-7828-11e7-bb25-2ff6dee07a1b\", \"type\": \"positive_only\", \"id\": \"4bd1b8f0-7828-11e7-bb25-2ff6dee07a1b\", \"unit\": \"\"}], \"seperate_axis\": 0, \"split_mode\": \"everything\", \"chart_type\": \"line\", \"stacked\": \"none\", \"axis_position\": \"right\", \"formatter\": \"number\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"fill\": \"0\"}], \"axis_formatter\": \"number\", \"interval\": \">=1m\", \"show_legend\": 0, \"show_grid\": 1, \"axis_position\": \"left\", \"type\": \"timeseries\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\"}, \"type\": \"metrics\", \"aggs\": [], \"title\": \"Transaction Per Minute [APM]\"}"
     },
-    "_references": [
-      {
-        "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
-        "type": "index-pattern",
-        "id": "apm-*"
-      }
-    ]
+    "_type": "visualization"
   }
 ]
