@@ -5,33 +5,43 @@ This is a collection of dashboards, visualizations, and searches that you can us
 
 ### Installation
 
-Dashboards are imported on the **Management > Saved objects** page. Full documentation on this process is available in [Kibana](https://www.elastic.co/guide/en/kibana/current/managing-saved-objects.html).
+Dashboards are imported on the **Management > Saved objects** page.
+Full documentation on this process is available in [Kibana](https://www.elastic.co/guide/en/kibana/current/managing-saved-objects.html).
 
 After importing, visit the [Dashboard](https://www.elastic.co/guide/en/kibana/current/dashboard.html) tab to view and edit your imported dashboards.
 
 ### Dashboards
 
-[**errors.json**](errors.json)
+
+#### Errors
+
+[6.x](6.x/errors.json)
 
 * Top errors for time period (visualization)
 * Error occurrences (visualization)
 
-[**error_details.json**](error_details.json)
+[6.x](6.x/error_details.json)
 
 * Error occurrences (visualization)
 * Error details (search)
 
-[**services.json**](services.json)
+#### Services
+
+[6.x](6.x/services.json)
 
 * Top services by transaction time (visualization)
 * Top services by transaction per minute (visualization)
 * Services (visualization)
 
-[**span_details.json**](span_details.json)
+#### Spans
+
+[6.x](6.x/span_details.json)
 
 * Spans (search)
 
-[**transactions.json**](transactions.json)
+#### Transactions
+
+[6.x](6.x/transactions.json)
 
 * Transaction times (visualization)
 * Transaction per minute (visualization)
