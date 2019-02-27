@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "3e3de700-7de0-11e7-b115-df9c90da2df1",
+    "_source": {
+      "description": "",
+      "hits": 0,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"lucene\"}, \"version\": true, \"highlightAll\": true}"
+      },
+      "optionsJSON": "{\"darkTheme\": false}",
+      "panelsJSON": "[{\"sort\": [\"span.start.us\", \"asc\"], \"type\": \"search\", \"col\": 1, \"size_x\": 12, \"size_y\": 23, \"panelIndex\": 1, \"id\": \"d7735b90-7ddf-11e7-b115-df9c90da2df1\", \"columns\": [\"span.type\", \"span.name\", \"span.duration.us\", \"span.start.us\"], \"row\": 1}]",
+      "timeRestore": false,
+      "title": "[APM] Span Details",
+      "uiStateJSON": "{}",
+      "version": 1
+    },
+    "_type": "dashboard"
+  },
+  {
+    "_id": "d7735b90-7ddf-11e7-b115-df9c90da2df1",
+    "_source": {
+      "columns": [
+        "span.type",
+        "span.name",
+        "span.duration.us",
+        "span.start.us"
+      ],
+      "description": "",
+      "hits": 0,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\": [{\"query\": {\"match\": {\"processor.event\": {\"query\": \"span\", \"type\": \"phrase\"}}}, \"meta\": {\"index\": \"apm-*\", \"value\": \"span\", \"disabled\": false, \"alias\": null, \"params\": {\"query\": \"span\", \"type\": \"phrase\"}, \"key\": \"processor.event\", \"negate\": false, \"type\": \"phrase\"}, \"$state\": {\"store\": \"appState\"}}], \"index\": \"apm-*\", \"version\": true, \"highlightAll\": true, \"query\": {\"query\": \"\", \"language\": \"lucene\"}}"
+      },
+      "sort": [
+        "span.start.us",
+        "asc"
+      ],
+      "title": "Spans [APM]",
+      "version": 1
+    },
+    "_type": "search"
+  }
+]

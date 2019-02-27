@@ -1,0 +1,111 @@
+[
+  {
+    "_id": "8d3ed660-7828-11e7-8c47-65b845b5cfb3",
+    "_migrationVersion": {
+      "dashboard": "7.0.0"
+    },
+    "_references": [
+      {
+        "id": "1ffc5e20-7827-11e7-8c47-65b845b5cfb3",
+        "name": "panel_0",
+        "type": "visualization"
+      },
+      {
+        "id": "1bdca740-7828-11e7-8c47-65b845b5cfb3",
+        "name": "panel_1",
+        "type": "visualization"
+      },
+      {
+        "id": "804ffc40-7828-11e7-8c47-65b845b5cfb3",
+        "name": "panel_2",
+        "type": "visualization"
+      }
+    ],
+    "_source": {
+      "description": "",
+      "hits": 0,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"},\"version\":true,\"highlightAll\":true}"
+      },
+      "optionsJSON": "{\"darkTheme\": false}",
+      "panelsJSON": "[{\"size_x\":12,\"size_y\":5,\"panelIndex\":1,\"col\":1,\"row\":4,\"panelRefName\":\"panel_0\"},{\"size_x\":6,\"size_y\":3,\"panelIndex\":2,\"col\":1,\"row\":1,\"panelRefName\":\"panel_1\"},{\"size_x\":6,\"size_y\":3,\"panelIndex\":3,\"col\":7,\"row\":1,\"panelRefName\":\"panel_2\"}]",
+      "timeRestore": false,
+      "title": "[APM] Services",
+      "uiStateJSON": "{\"P-1\": {\"vis\": {\"params\": {\"sort\": {\"columnIndex\": null, \"direction\": null}}}}}",
+      "version": 1
+    },
+    "_type": "dashboard"
+  },
+  {
+    "_id": "1ffc5e20-7827-11e7-8c47-65b845b5cfb3",
+    "_migrationVersion": {
+      "visualization": "7.0.0"
+    },
+    "_references": [
+      {
+        "id": "apm-*",
+        "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+        "type": "index-pattern"
+      }
+    ],
+    "_source": {
+      "description": "",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"},\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+      },
+      "title": "Services [APM]",
+      "uiStateJSON": "{\"vis\": {\"params\": {\"sort\": {\"columnIndex\": null, \"direction\": null}}}}",
+      "version": 1,
+      "visState": "{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null},\"perPage\":10,\"showPartialRows\":false,\"totalFunc\":\"sum\",\"showTotal\":false,\"showMeticsAtAllLevels\":false},\"type\":\"table\",\"aggs\":[{\"type\":\"avg\",\"enabled\":true,\"id\":\"1\",\"params\":{\"field\":\"transaction.duration.us\",\"customLabel\":\"Avg. Trans. Time\"},\"schema\":\"metric\"},{\"type\":\"percentiles\",\"enabled\":true,\"id\":\"3\",\"params\":{\"field\":\"transaction.duration.us\",\"percents\":[95],\"customLabel\":\"Trans. Time\"},\"schema\":\"metric\"},{\"type\":\"cardinality\",\"enabled\":true,\"id\":\"4\",\"params\":{\"field\":\"transaction.id\",\"customLabel\":\"Total Transactions\"},\"schema\":\"metric\"},{\"type\":\"cardinality\",\"enabled\":true,\"id\":\"6\",\"params\":{\"field\":\"error.id\",\"customLabel\":\"Errors\"},\"schema\":\"metric\"},{\"type\":\"top_hits\",\"enabled\":true,\"id\":\"5\",\"params\":{\"sortField\":\"@timestamp\",\"customLabel\":\"-\",\"field\":\"view errors\",\"sortOrder\":\"desc\",\"aggregate\":\"concat\",\"size\":1},\"schema\":\"metric\"},{\"type\":\"terms\",\"enabled\":true,\"id\":\"2\",\"params\":{\"orderBy\":\"1\",\"field\":\"service.name\",\"order\":\"desc\",\"size\":1000},\"schema\":\"bucket\"}],\"title\":\"Services [APM]\"}"
+    },
+    "_type": "visualization"
+  },
+  {
+    "_id": "1bdca740-7828-11e7-8c47-65b845b5cfb3",
+    "_migrationVersion": {
+      "visualization": "7.0.0"
+    },
+    "_references": [
+      {
+        "id": "apm-*",
+        "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+        "type": "index-pattern"
+      }
+    ],
+    "_source": {
+      "description": "",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"lucene\"},\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+      },
+      "title": "Top Services by Transaction Time [APM]",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "visState": "{\"params\":{\"time_field\":\"@timestamp\",\"series\":[{\"line_width\":\"2\",\"terms_field\":\"service.name\",\"point_size\":1,\"color\":\"rgba(0,156,224,1)\",\"value_template\":\"{{value}} ms\",\"metrics\":[{\"field\":\"transaction.duration.us\",\"type\":\"avg\",\"id\":\"61ca57f2-469d-11e7-af02-69e470af7417\"}],\"seperate_axis\":0,\"split_mode\":\"terms\",\"chart_type\":\"line\",\"terms_order_by\":\"61ca57f2-469d-11e7-af02-69e470af7417\",\"stacked\":\"none\",\"axis_position\":\"right\",\"formatter\":\"us,ms,0\",\"id\":\"61ca57f1-469d-11e7-af02-69e470af7417\",\"split_color_mode\":\"gradient\",\"fill\":\"0\"}],\"axis_formatter\":\"number\",\"interval\":\">=1m\",\"show_legend\":1,\"show_grid\":1,\"axis_position\":\"left\",\"type\":\"timeseries\",\"id\":\"61ca57f0-469d-11e7-af02-69e470af7417\"},\"type\":\"metrics\",\"aggs\":[],\"title\":\"Top Services by Transaction Time [APM]\"}"
+    },
+    "_type": "visualization"
+  },
+  {
+    "_id": "804ffc40-7828-11e7-8c47-65b845b5cfb3",
+    "_migrationVersion": {
+      "visualization": "7.0.0"
+    },
+    "_references": [
+      {
+        "id": "apm-*",
+        "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+        "type": "index-pattern"
+      }
+    ],
+    "_source": {
+      "description": "",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"lucene\"},\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+      },
+      "title": "Top Services by Transaction Per Minute [APM]",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "visState": "{\"params\":{\"time_field\":\"@timestamp\",\"series\":[{\"line_width\":\"2\",\"terms_field\":\"service.name\",\"point_size\":1,\"color\":\"rgba(0,156,224,1)\",\"value_template\":\"{{value}} tpm\",\"metrics\":[{\"type\":\"count\",\"id\":\"61ca57f2-469d-11e7-af02-69e470af7417\"},{\"field\":\"61ca57f2-469d-11e7-af02-69e470af7417\",\"type\":\"cumulative_sum\",\"id\":\"3fcaa6c0-7828-11e7-bb25-2ff6dee07a1b\"},{\"field\":\"3fcaa6c0-7828-11e7-bb25-2ff6dee07a1b\",\"type\":\"derivative\",\"id\":\"467f1cd0-7828-11e7-bb25-2ff6dee07a1b\",\"unit\":\"1m\"},{\"field\":\"467f1cd0-7828-11e7-bb25-2ff6dee07a1b\",\"type\":\"positive_only\",\"id\":\"4bd1b8f0-7828-11e7-bb25-2ff6dee07a1b\",\"unit\":\"\"}],\"seperate_axis\":0,\"split_mode\":\"terms\",\"chart_type\":\"line\",\"terms_order_by\":\"_count\",\"stacked\":\"none\",\"axis_position\":\"right\",\"formatter\":\"number\",\"id\":\"61ca57f1-469d-11e7-af02-69e470af7417\",\"fill\":\"0\"}],\"axis_formatter\":\"number\",\"interval\":\">=1m\",\"show_legend\":1,\"show_grid\":1,\"axis_position\":\"left\",\"type\":\"timeseries\",\"id\":\"61ca57f0-469d-11e7-af02-69e470af7417\"},\"type\":\"metrics\",\"aggs\":[],\"title\":\"Top Apps by Transaction Per Minute [APM]\"}"
+    },
+    "_type": "visualization"
+  }
+]

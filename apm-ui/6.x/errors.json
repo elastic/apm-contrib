@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "37f6fac0-7c6a-11e7-aa55-3b0d52c71c60",
+    "_source": {
+      "description": "",
+      "hits": 0,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\": [], \"query\": {\"query\": \"\", \"language\": \"lucene\"}, \"version\": true, \"highlightAll\": true}"
+      },
+      "optionsJSON": "{\"darkTheme\": false}",
+      "panelsJSON": "[{\"type\": \"visualization\", \"id\": \"22518e70-7c69-11e7-aa55-3b0d52c71c60\", \"size_x\": 12, \"size_y\": 10, \"panelIndex\": 1, \"col\": 1, \"row\": 4}, {\"type\": \"visualization\", \"id\": \"c618e4e0-7c69-11e7-aa55-3b0d52c71c60\", \"size_x\": 12, \"size_y\": 3, \"panelIndex\": 2, \"col\": 1, \"row\": 1}]",
+      "timeRestore": false,
+      "title": "[APM] Errors",
+      "uiStateJSON": "{\"P-1\": {\"vis\": {\"params\": {\"sort\": {\"columnIndex\": null, \"direction\": null}}}}}",
+      "version": 1
+    },
+    "_type": "dashboard"
+  },
+  {
+    "_id": "22518e70-7c69-11e7-aa55-3b0d52c71c60",
+    "_source": {
+      "description": "",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\": [], \"index\": \"apm-*\", \"query\": {\"query\": \"\", \"language\": \"lucene\"}}"
+      },
+      "title": "Top Errors for Time Period [APM]",
+      "uiStateJSON": "{\"vis\": {\"params\": {\"sort\": {\"columnIndex\": null, \"direction\": null}}}}",
+      "version": 1,
+      "visState": "{\"params\": {\"sort\": {\"columnIndex\": null, \"direction\": null}, \"perPage\": 25, \"showPartialRows\": false, \"totalFunc\": \"sum\", \"showTotal\": false, \"showMeticsAtAllLevels\": false}, \"type\": \"table\", \"aggs\": [{\"type\": \"terms\", \"enabled\": true, \"id\": \"2\", \"params\": {\"orderBy\": \"1\", \"field\": \"error id icon\", \"customLabel\": \"-\", \"order\": \"desc\", \"size\": 100}, \"schema\": \"bucket\"}, {\"type\": \"top_hits\", \"enabled\": true, \"id\": \"5\", \"params\": {\"sortField\": \"@timestamp\", \"customLabel\": \"Message\", \"field\": \"error.exception.message\", \"sortOrder\": \"desc\", \"aggregate\": \"concat\", \"size\": 1}, \"schema\": \"metric\"}, {\"type\": \"count\", \"enabled\": true, \"id\": \"1\", \"params\": {\"customLabel\": \"Number of Errors\"}, \"schema\": \"metric\"}, {\"type\": \"top_hits\", \"enabled\": true, \"id\": \"4\", \"params\": {\"sortField\": \"@timestamp\", \"customLabel\": \"Type\", \"field\": \"error.exception.type\", \"sortOrder\": \"desc\", \"aggregate\": \"concat\", \"size\": 1}, \"schema\": \"metric\"}, {\"type\": \"top_hits\", \"enabled\": true, \"id\": \"3\", \"params\": {\"sortField\": \"@timestamp\", \"customLabel\": \"Culprit\", \"field\": \"error.culprit\", \"sortOrder\": \"desc\", \"aggregate\": \"concat\", \"size\": 1}, \"schema\": \"metric\"}, {\"type\": \"top_hits\", \"enabled\": true, \"id\": \"6\", \"params\": {\"sortField\": \"@timestamp\", \"customLabel\": \"App Name\", \"field\": \"context.service.name\", \"sortOrder\": \"desc\", \"aggregate\": \"concat\", \"size\": 1}, \"schema\": \"metric\"}, {\"type\": \"top_hits\", \"enabled\": true, \"id\": \"7\", \"params\": {\"sortField\": \"@timestamp\", \"customLabel\": \"-\", \"field\": \"error.grouping_key\", \"sortOrder\": \"desc\", \"aggregate\": \"concat\", \"size\": 1}, \"schema\": \"metric\"}], \"title\": \"Top Errors for Time Period [APM]\"}"
+    },
+    "_type": "visualization"
+  },
+  {
+    "_id": "c618e4e0-7c69-11e7-aa55-3b0d52c71c60",
+    "_source": {
+      "description": "",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\": \"apm-*\", \"query\": {\"query\": \"\", \"language\": \"lucene\"}}"
+      },
+      "title": "Error Occurrences [APM]",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "visState": "{\"params\": {\"time_field\": \"@timestamp\", \"series\": [{\"line_width\": \"0\", \"terms_field\": \"error.grouping_key\", \"point_size\": 1, \"color\": \"rgba(0,156,224,1)\", \"label\": \"Occurrences\", \"metrics\": [{\"type\": \"count\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"seperate_axis\": 0, \"split_mode\": \"terms\", \"chart_type\": \"bar\", \"stacked\": \"none\", \"axis_position\": \"right\", \"formatter\": \"number\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"fill\": \"1\"}], \"axis_formatter\": \"number\", \"interval\": \">=1m\", \"filter\": \"processor.event:error\", \"show_legend\": 0, \"show_grid\": 1, \"axis_position\": \"left\", \"type\": \"timeseries\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\"}, \"type\": \"metrics\", \"aggs\": [], \"title\": \"Error Occurrences [APM]\"}"
+    },
+    "_type": "visualization"
+  }
+]

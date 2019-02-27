@@ -1,0 +1,67 @@
+[
+  {
+    "_id": "3e3de700-7de0-11e7-b115-df9c90da2df1",
+    "_migrationVersion": {
+      "dashboard": "7.0.0"
+    },
+    "_references": [
+      {
+        "id": "d7735b90-7ddf-11e7-b115-df9c90da2df1",
+        "name": "panel_0",
+        "type": "search"
+      }
+    ],
+    "_source": {
+      "description": "",
+      "hits": 0,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"},\"version\":true,\"highlightAll\":true}"
+      },
+      "optionsJSON": "{\"darkTheme\": false}",
+      "panelsJSON": "[{\"sort\":[\"span.start.us\",\"asc\"],\"col\":1,\"size_x\":12,\"size_y\":23,\"panelIndex\":1,\"columns\":[\"span.type\",\"span.name\",\"span.duration.us\",\"span.start.us\"],\"row\":1,\"panelRefName\":\"panel_0\"}]",
+      "timeRestore": false,
+      "title": "[APM] Span Details",
+      "uiStateJSON": "{}",
+      "version": 1
+    },
+    "_type": "dashboard"
+  },
+  {
+    "_id": "d7735b90-7ddf-11e7-b115-df9c90da2df1",
+    "_migrationVersion": {
+      "search": "7.0.0"
+    },
+    "_references": [
+      {
+        "id": "apm-*",
+        "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+        "type": "index-pattern"
+      },
+      {
+        "id": "apm-*",
+        "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+        "type": "index-pattern"
+      }
+    ],
+    "_source": {
+      "columns": [
+        "span.type",
+        "span.name",
+        "span.duration.us",
+        "span.start.us"
+      ],
+      "description": "",
+      "hits": 0,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"match\":{\"processor.event\":{\"query\":\"span\",\"type\":\"phrase\"}}},\"meta\":{\"value\":\"span\",\"disabled\":false,\"alias\":null,\"params\":{\"query\":\"span\",\"type\":\"phrase\"},\"key\":\"processor.event\",\"negate\":false,\"type\":\"phrase\",\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index\"},\"$state\":{\"store\":\"appState\"}}],\"version\":true,\"highlightAll\":true,\"query\":{\"query\":\"\",\"language\":\"lucene\"},\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+      },
+      "sort": [
+        "span.start.us",
+        "asc"
+      ],
+      "title": "Spans [APM]",
+      "version": 1
+    },
+    "_type": "search"
+  }
+]
