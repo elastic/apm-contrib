@@ -1,0 +1,98 @@
+[
+  {
+    "_id": "5f08a870-7c6a-11e7-aa55-3b0d52c71c60",
+    "_migrationVersion": {
+      "dashboard": "7.0.0"
+    },
+    "_references": [
+      {
+        "id": "c618e4e0-7c69-11e7-aa55-3b0d52c71c60",
+        "name": "panel_0",
+        "type": "visualization"
+      },
+      {
+        "id": "ceefd050-7c6a-11e7-aa55-3b0d52c71c60",
+        "name": "panel_1",
+        "type": "search"
+      }
+    ],
+    "_source": {
+      "description": "",
+      "hits": 0,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"},\"version\":true,\"highlightAll\":true}"
+      },
+      "optionsJSON": "{\"darkTheme\": false}",
+      "panelsJSON": "[{\"size_x\":12,\"size_y\":3,\"panelIndex\":1,\"col\":1,\"row\":1,\"panelRefName\":\"panel_0\"},{\"sort\":[\"@timestamp\",\"desc\"],\"size_x\":12,\"size_y\":21,\"panelIndex\":2,\"col\":1,\"columns\":[\"error.culprit\",\"error.exception.type\",\"error.exception.message\",\"error.log.message\",\"error.exception.handled\",\"service.name\"],\"row\":4,\"panelRefName\":\"panel_1\"}]",
+      "timeRestore": false,
+      "title": "[APM] Error Details",
+      "uiStateJSON": "{}",
+      "version": 1
+    },
+    "_type": "dashboard"
+  },
+  {
+    "_id": "c618e4e0-7c69-11e7-aa55-3b0d52c71c60",
+    "_migrationVersion": {
+      "visualization": "7.0.0"
+    },
+    "_references": [
+      {
+        "id": "apm-*",
+        "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+        "type": "index-pattern"
+      }
+    ],
+    "_source": {
+      "description": "",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"lucene\"},\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+      },
+      "title": "Error Occurrences [APM]",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "visState": "{\"params\":{\"time_field\":\"@timestamp\",\"series\":[{\"line_width\":\"0\",\"terms_field\":\"error.grouping_key\",\"point_size\":1,\"color\":\"rgba(0,156,224,1)\",\"label\":\"Occurrences\",\"metrics\":[{\"type\":\"count\",\"id\":\"61ca57f2-469d-11e7-af02-69e470af7417\"}],\"seperate_axis\":0,\"split_mode\":\"terms\",\"chart_type\":\"bar\",\"stacked\":\"none\",\"axis_position\":\"right\",\"formatter\":\"number\",\"id\":\"61ca57f1-469d-11e7-af02-69e470af7417\",\"fill\":\"1\"}],\"axis_formatter\":\"number\",\"interval\":\">=1m\",\"filter\":\"processor.event:error\",\"show_legend\":0,\"show_grid\":1,\"axis_position\":\"left\",\"type\":\"timeseries\",\"id\":\"61ca57f0-469d-11e7-af02-69e470af7417\"},\"type\":\"metrics\",\"aggs\":[],\"title\":\"Error Occurrences [APM]\"}"
+    },
+    "_type": "visualization"
+  },
+  {
+    "_id": "ceefd050-7c6a-11e7-aa55-3b0d52c71c60",
+    "_migrationVersion": {
+      "search": "7.0.0"
+    },
+    "_references": [
+      {
+        "id": "apm-*",
+        "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+        "type": "index-pattern"
+      },
+      {
+        "id": "apm-*",
+        "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+        "type": "index-pattern"
+      }
+    ],
+    "_source": {
+      "columns": [
+        "error.culprit",
+        "error.exception.type",
+        "error.exception.message",
+        "error.log.message",
+        "error.exception.handled",
+        "service.name"
+      ],
+      "description": "",
+      "hits": 0,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"match\":{\"processor.event\":{\"query\":\"error\",\"type\":\"phrase\"}}},\"meta\":{\"value\":\"error\",\"disabled\":false,\"alias\":null,\"params\":{\"query\":\"error\",\"type\":\"phrase\"},\"key\":\"processor.event\",\"negate\":false,\"type\":\"phrase\",\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index\"},\"$state\":{\"store\":\"appState\"}}],\"version\":true,\"highlightAll\":true,\"query\":{\"query\":\"\",\"language\":\"lucene\"},\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+      },
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "title": "Error Details [APM]",
+      "version": 1
+    },
+    "_type": "search"
+  }
+]

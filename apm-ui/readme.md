@@ -12,22 +12,21 @@ After importing, visit the [Dashboard](https://www.elastic.co/guide/en/kibana/cu
 
 ### Dashboards
 
-
 #### Errors
 
-[6.x](6.x/errors.json)
+[6.x](6.x/errors.json) [7.x](7.x/errors.json)
 
 * Top errors for time period (visualization)
 * Error occurrences (visualization)
 
-[6.x](6.x/error_details.json)
+[6.x](6.x/error_details.json) [7.x](7.x/error_details.json)
 
 * Error occurrences (visualization)
 * Error details (search)
 
 #### Services
 
-[6.x](6.x/services.json)
+[6.x](6.x/services.json) [7.x](7.x/services.json)
 
 * Top services by transaction time (visualization)
 * Top services by transaction per minute (visualization)
@@ -35,13 +34,13 @@ After importing, visit the [Dashboard](https://www.elastic.co/guide/en/kibana/cu
 
 #### Spans
 
-[6.x](6.x/span_details.json)
+[6.x](6.x/span_details.json) [7.x](7.x/span_details.json)
 
 * Spans (search)
 
 #### Transactions
 
-[6.x](6.x/transactions.json)
+[6.x](6.x/transactions.json) [7.x](7.x/transactions.json)
 
 * Transaction times (visualization)
 * Transaction per minute (visualization)
