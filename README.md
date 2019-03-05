@@ -40,10 +40,10 @@ For more information about contributing, see the relevant `CONTRIBUTING` file:
 
 The following agents are developed and maintained by members of the community.
 
-| Project      | Repo                 | Docs
-| :-           | :-                   | :-
-| Meteor Agent | [apm-agent-meteor][] | [📘 README][apm-agent-meteor-docs]
-| PHP Agent    | [apm-agent-php][]    | [📘 README][apm-agent-php-docs]
+| Project      | Repo                                            | Docs
+| :-           | :-                                              | :-
+| Meteor Agent | [kschingiz/meteor-elastic-am][apm-agent-meteor] | [📘 README][apm-agent-meteor-docs]
+| PHP Agent    | [philkra/elastic-apm-php-agent][apm-agent-php]  | [📘 README][apm-agent-php-docs]
 
 [apm-server]: https://github.com/elastic/apm-server
 [apm-server-docs]: https://www.elastic.co/guide/en/apm/server/current/index.html
