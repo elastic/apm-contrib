@@ -36,6 +36,13 @@ For more information about contributing, see the relevant `CONTRIBUTING` file:
 * Ruby Agent
 * [.NET Agent](https://github.com/elastic/apm-agent-dotnet/blob/master/CONTRIBUTING.md)
 
+## Community Developed Agents
+
+The following agents are developed and maintained by members of the community.
+
+| Project      | Repo                 | Docs
+| :-           | :-                   | :-
+| Meteor Agent | [apm-agent-meteor][] | [📘 README][apm-agent-meteor-docs]
 
 [apm-server]: https://github.com/elastic/apm-server
 [apm-server-docs]: https://www.elastic.co/guide/en/apm/server/current/index.html
@@ -63,3 +70,6 @@ For more information about contributing, see the relevant `CONTRIBUTING` file:
 
 [apm-agent-dotnet-docs]: https://www.elastic.co/guide/en/apm/agent/dotnet/current/index.html
 [apm-agent-dotnet]: https://github.com/elastic/apm-agent-dotnet
+
+[apm-agent-meteor]: https://github.com/kschingiz/meteor-elastic-apm
+[apm-agent-meteor-docs]: https://github.com/kschingiz/meteor-elastic-apm#readme
