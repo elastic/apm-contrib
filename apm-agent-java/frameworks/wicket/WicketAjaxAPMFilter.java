@@ -1,4 +1,4 @@
-package eu.dindoffer.wicket.filter;
+package co.elastic.apm.contrib.wicket;
 
 import co.elastic.apm.api.ElasticApm;
 import org.slf4j.Logger;
