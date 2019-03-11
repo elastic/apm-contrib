@@ -30,7 +30,7 @@ For more information about contributing, see the relevant `CONTRIBUTING` file:
 * [APM UI](https://github.com/elastic/kibana/blob/master/CONTRIBUTING.md)
 * [Go Agent](https://github.com/elastic/apm-agent-go/blob/master/CONTRIBUTING.md)
 * [Java Agent](https://github.com/elastic/apm-agent-java/blob/master/CONTRIBUTING.md)
-* JavaScript RUM Agent
+* [JavaScript RUM Agent](https://github.com/elastic/apm-agent-rum-js/blob/master/CONTRIBUTING.md)
 * [Node.js Agent](https://github.com/elastic/apm-agent-nodejs/blob/master/CONTRIBUTING.md)
 * [Python Agent](https://github.com/elastic/apm-agent-python/blob/master/CONTRIBUTING.md)
 * Ruby Agent
