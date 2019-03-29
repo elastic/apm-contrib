@@ -33,7 +33,7 @@ For more information about contributing, see the relevant `CONTRIBUTING` file:
 * [JavaScript RUM Agent](https://github.com/elastic/apm-agent-rum-js/blob/master/CONTRIBUTING.md)
 * [Node.js Agent](https://github.com/elastic/apm-agent-nodejs/blob/master/CONTRIBUTING.md)
 * [Python Agent](https://github.com/elastic/apm-agent-python/blob/master/CONTRIBUTING.md)
-* Ruby Agent
+* [Ruby Agent](https://github.com/elastic/apm-agent-ruby/blob/master/CONTRIBUTING.md)
 * [.NET Agent](https://github.com/elastic/apm-agent-dotnet/blob/master/CONTRIBUTING.md)
 
 ## Community Developed Agents
