@@ -10,7 +10,7 @@
 | APM UI                    | [apm-ui][]            | [📘 elastic.co][apm-ui-docs]            | [📂 contrib](apm-ui)
 | Go Agent                  | [apm-agent-go][]      | [📘 elastic.co][apm-agent-go-docs]      | [📂 contrib](apm-agent-go)
 | Java Agent                | [apm-agent-java][]    | [📘 elastic.co][apm-agent-java-docs]    | [📂 contrib](apm-agent-java)
-| JavaScript RUM Agent      | [apm-agent-js-base][] | [📘 elastic.co][apm-agent-js-base-docs] | [📂 contrib](apm-agent-js-base)
+| JavaScript RUM Agent      | [apm-agent-rum-js][]  | [📘 elastic.co][apm-agent-js-base-docs] | [📂 contrib](apm-agent-rum-js)
 | Node.js Agent             | [apm-agent-nodejs][]  | [📘 elastic.co][apm-agent-nodejs-docs]  | [📂 contrib](apm-agent-nodejs)
 | Python Agent              | [apm-agent-python][]  | [📘 elastic.co][apm-agent-python-docs]  | [📂 contrib](apm-agent-python)
 | Ruby Agent                | [apm-agent-ruby][]    | [📘 elastic.co][apm-agent-ruby-docs]    | [📂 contrib](apm-agent-ruby)
@@ -57,7 +57,7 @@ The following agents are developed and maintained by members of the community.
 [apm-agent-java]: https://github.com/elastic/apm-agent-java
 [apm-agent-java-docs]: https://www.elastic.co/guide/en/apm/agent/java/current/index.html
 
-[apm-agent-js-base]: https://github.com/elastic/apm-agent-js-base
+[apm-agent-rum-js]: https://github.com/elastic/apm-agent-rum-js
 [apm-agent-js-base-docs]: https://www.elastic.co/guide/en/apm/agent/js-base/current/index.html
 
 [apm-agent-nodejs]: https://github.com/elastic/apm-agent-nodejs
