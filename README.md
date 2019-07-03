@@ -1,20 +1,20 @@
-<h1 align='center'><img src='https://s3.brnbw.com/icon-apm-bb-hVa5dfgvZw.svg' alt='APM' width='48' valign='middle' /> Elastic APM Contrib</h1>
+<h1 align='center'><img src='apm-logo.svg' alt='Elastic APM' width='32' valign='middle' /> Elastic APM Contrib</h1>
 
 <p align='center'>This repository includes contributions for Elastic APM.</p>
 
 ## What we do…
 
-| Project                   | Repo                  | Docs                                    | Contrib
-| :-                        | :-                    | :-                                      | :-
-| APM Server                | [apm-server][]        | [📘 elastic.co][apm-server-docs]        | [📂 contrib](apm-server)
-| APM UI                    | [apm-ui][]            | [📘 elastic.co][apm-ui-docs]            | [📂 contrib](apm-ui)
-| Go Agent                  | [apm-agent-go][]      | [📘 elastic.co][apm-agent-go-docs]      | [📂 contrib](apm-agent-go)
-| Java Agent                | [apm-agent-java][]    | [📘 elastic.co][apm-agent-java-docs]    | [📂 contrib](apm-agent-java)
-| JavaScript RUM Agent      | [apm-agent-rum-js][]  | [📘 elastic.co][apm-agent-js-base-docs] | [📂 contrib](apm-agent-rum-js)
-| Node.js Agent             | [apm-agent-nodejs][]  | [📘 elastic.co][apm-agent-nodejs-docs]  | [📂 contrib](apm-agent-nodejs)
-| Python Agent              | [apm-agent-python][]  | [📘 elastic.co][apm-agent-python-docs]  | [📂 contrib](apm-agent-python)
-| Ruby Agent                | [apm-agent-ruby][]    | [📘 elastic.co][apm-agent-ruby-docs]    | [📂 contrib](apm-agent-ruby)
-| .NET Agent (🚧 Prototype) | [apm-agent-dotnet][]  | [📘 elastic.co][apm-agent-dotnet-docs]  | [📂 contrib](apm-agent-dotnet)
+| Project                   | Repo                 | Docs                                    | Contrib                        |
+| :------------------------ | :------------------- | :-------------------------------------- | :----------------------------- |
+| APM Server                | [apm-server][]       | [📘 elastic.co][apm-server-docs]        | [📂 contrib](apm-server)       |
+| APM UI                    | [apm-ui][]           | [📘 elastic.co][apm-ui-docs]            | [📂 contrib](apm-ui)           |
+| Go Agent                  | [apm-agent-go][]     | [📘 elastic.co][apm-agent-go-docs]      | [📂 contrib](apm-agent-go)     |
+| Java Agent                | [apm-agent-java][]   | [📘 elastic.co][apm-agent-java-docs]    | [📂 contrib](apm-agent-java)   |
+| JavaScript RUM Agent      | [apm-agent-rum-js][] | [📘 elastic.co][apm-agent-js-base-docs] | [📂 contrib](apm-agent-rum-js) |
+| Node.js Agent             | [apm-agent-nodejs][] | [📘 elastic.co][apm-agent-nodejs-docs]  | [📂 contrib](apm-agent-nodejs) |
+| Python Agent              | [apm-agent-python][] | [📘 elastic.co][apm-agent-python-docs]  | [📂 contrib](apm-agent-python) |
+| Ruby Agent                | [apm-agent-ruby][]   | [📘 elastic.co][apm-agent-ruby-docs]    | [📂 contrib](apm-agent-ruby)   |
+| .NET Agent (🚧 Prototype) | [apm-agent-dotnet][] | [📘 elastic.co][apm-agent-dotnet-docs]  | [📂 contrib](apm-agent-dotnet) |
 
 ## APM Contrib Repository
 
@@ -40,10 +40,10 @@ For more information about contributing, see the relevant `CONTRIBUTING` file:
 
 The following agents are developed and maintained by members of the community.
 
-| Project      | Repo                                             | Docs
-| :-           | :-                                               | :-
-| Meteor Agent | [kschingiz/meteor-elastic-apm][apm-agent-meteor] | [📘 README][apm-agent-meteor-docs]
-| PHP Agent    | [philkra/elastic-apm-php-agent][apm-agent-php]   | [📘 README][apm-agent-php-docs]
+| Project      | Repo                                             | Docs                               |
+| :----------- | :----------------------------------------------- | :--------------------------------- |
+| Meteor Agent | [kschingiz/meteor-elastic-apm][apm-agent-meteor] | [📘 README][apm-agent-meteor-docs] |
+| PHP Agent    | [philkra/elastic-apm-php-agent][apm-agent-php]   | [📘 README][apm-agent-php-docs]    |
 
 [apm-server]: https://github.com/elastic/apm-server
 [apm-server-docs]: https://www.elastic.co/guide/en/apm/server/current/index.html
