@@ -13,6 +13,8 @@ Follow steps 4 & 5 on http://localhost:5601/app/kibana#/home/tutorial/apm to con
 
 Visit http://localhost:5601/app/apm to see the results!
 
+*to stop*: hit ctrl-c to shut down all of the containers started
+
 ## Updating
 
 This `docker-compose.yml` was generated from the [apm-integration-testing repository](https://github.com/elastic/apm-integration-testing) with:
