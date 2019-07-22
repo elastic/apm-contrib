@@ -14,7 +14,7 @@
 | Node.js Agent             | [apm-agent-nodejs][] | [📘 elastic.co][apm-agent-nodejs-docs]  | [📂 contrib](apm-agent-nodejs) |
 | Python Agent              | [apm-agent-python][] | [📘 elastic.co][apm-agent-python-docs]  | [📂 contrib](apm-agent-python) |
 | Ruby Agent                | [apm-agent-ruby][]   | [📘 elastic.co][apm-agent-ruby-docs]    | [📂 contrib](apm-agent-ruby)   |
-| .NET Agent (🚧 Prototype) | [apm-agent-dotnet][] | [📘 elastic.co][apm-agent-dotnet-docs]  | [📂 contrib](apm-agent-dotnet) |
+| .NET Agent (🚧 Beta)      | [apm-agent-dotnet][] | [📘 elastic.co][apm-agent-dotnet-docs]  | [📂 contrib](apm-agent-dotnet) |
 
 ## APM Contrib Repository
 
