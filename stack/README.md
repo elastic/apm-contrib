@@ -1,6 +1,6 @@
 ## Stack Quickstart
 
-This folder contains a minmal `docker-compose.yml` for quickly bringing up an Elastic APM stack.
+This folder contains a minimal `docker-compose.yml` for quickly bringing up an Elastic APM stack.
 To get started, clone this repository and run:
 
 ```sh
