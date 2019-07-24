@@ -40,10 +40,11 @@ For more information about contributing, see the relevant `CONTRIBUTING` file:
 
 The following agents are developed and maintained by members of the community.
 
-| Project      | Repo                                             | Docs                               |
-| :----------- | :----------------------------------------------- | :--------------------------------- |
-| Meteor Agent | [kschingiz/meteor-elastic-apm][apm-agent-meteor] | [📘 README][apm-agent-meteor-docs] |
-| PHP Agent    | [philkra/elastic-apm-php-agent][apm-agent-php]   | [📘 README][apm-agent-php-docs]    |
+| Project      | Repo                                                       | Docs                                    | Notes                       |
+| :----------- | :--------------------------------------------------------- | :-------------------------------------- | :-------------------------- |
+| Meteor Agent | [kschingiz/meteor-elastic-apm][apm-agent-meteor]           | [📘 README][apm-agent-meteor-docs]      |                             |
+| PHP Agent    | [philkra/elastic-apm-php-agent][apm-agent-php-philkra]     | [📘 README][apm-agent-php-philkra-docs] | Supports APM Server 6.2-6.x |
+| PHP Agent    | [speakol-ads/elastic-apm-php-agent][apm-agent-php-speakol] | [📘 README][apm-agent-php-speakol-docs] | Supports APM Server 6.5+    |
 
 [apm-server]: https://github.com/elastic/apm-server
 [apm-server-docs]: https://www.elastic.co/guide/en/apm/server/current/index.html
@@ -75,5 +76,7 @@ The following agents are developed and maintained by members of the community.
 [apm-agent-meteor]: https://github.com/kschingiz/meteor-elastic-apm
 [apm-agent-meteor-docs]: https://github.com/kschingiz/meteor-elastic-apm#readme
 
-[apm-agent-php]: https://github.com/philkra/elastic-apm-php-agent
-[apm-agent-php-docs]: https://github.com/philkra/elastic-apm-php-agent#readme
+[apm-agent-php-philkra]: https://github.com/philkra/elastic-apm-php-agent
+[apm-agent-php-philkra-docs]: https://github.com/philkra/elastic-apm-php-agent#readme
+[apm-agent-php-speakol]: https://github.com/speakol-ads/elastic-apm-php-agent
+[apm-agent-php-speakol-docs]: https://github.com/speakol-ads/elastic-apm-php-agent#readme
