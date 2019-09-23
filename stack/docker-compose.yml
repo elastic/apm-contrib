@@ -58,7 +58,7 @@
         "-E",
         "apm-server.register.ingest.pipeline.enabled=true"
       ],
-      "container_name": "localtesting_7.3.2_apm-server",
+      "container_name": "localtesting_${STACK_VERSION:-7.3.2}_apm-server",
       "depends_on": {
         "elasticsearch": {
           "condition": "service_healthy"
@@ -82,9 +82,9 @@
           "http://localhost:8200/"
         ]
       },
-      "image": "docker.elastic.co/apm/apm-server:7.3.2",
+      "image": "docker.elastic.co/apm/apm-server:${STACK_VERSION:-7.3.2}",
       "labels": [
-        "co.elastic.apm.stack-version=7.3.2"
+        "co.elastic.apm.stack-version=${STACK_VERSION:-7.3.2}"
       ],
       "logging": {
         "driver": "json-file",
@@ -99,7 +99,7 @@
       ]
     },
     "elasticsearch": {
-      "container_name": "localtesting_7.3.2_elasticsearch",
+      "container_name": "localtesting_${STACK_VERSION:-7.3.2}_elasticsearch",
       "environment": [
         "bootstrap.memory_lock=true",
         "cluster.name=docker-cluster",
@@ -107,7 +107,7 @@
         "discovery.type=single-node",
         "path.repo=/usr/share/elasticsearch/data/backups",
         "ES_JAVA_OPTS=-XX:UseAVX=2 -Xms1g -Xmx1g",
-        "path.data=/usr/share/elasticsearch/data/7.3.2",
+        "path.data=/usr/share/elasticsearch/data/${STACK_VERSION:-7.3.2}",
         "xpack.security.enabled=false",
         "xpack.license.self_generated.type=trial",
         "xpack.monitoring.collection.enabled=true"
@@ -120,9 +120,9 @@
           "curl -s http://localhost:9200/_cluster/health | grep -vq '\"status\":\"red\"'"
         ]
       },
-      "image": "docker.elastic.co/elasticsearch/elasticsearch:7.3.2",
+      "image": "docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION:-7.3.2}",
       "labels": [
-        "co.elastic.apm.stack-version=7.3.2"
+        "co.elastic.apm.stack-version=${STACK_VERSION:-7.3.2}"
       ],
       "logging": {
         "driver": "json-file",
@@ -145,7 +145,7 @@
       ]
     },
     "kibana": {
-      "container_name": "localtesting_7.3.2_kibana",
+      "container_name": "localtesting_${STACK_VERSION:-7.3.2}_kibana",
       "depends_on": {
         "elasticsearch": {
           "condition": "service_healthy"
@@ -172,9 +172,9 @@
           "http://kibana:5601/api/status"
         ]
       },
-      "image": "docker.elastic.co/kibana/kibana:7.3.2",
+      "image": "docker.elastic.co/kibana/kibana:${STACK_VERSION:-7.3.2}",
       "labels": [
-        "co.elastic.apm.stack-version=7.3.2"
+        "co.elastic.apm.stack-version=${STACK_VERSION:-7.3.2}"
       ],
       "logging": {
         "driver": "json-file",
