@@ -1,4 +1,4 @@
-## APM UI Dashboards and Visualizations
+## APM Dashboards and Visualizations
 
 A Kibana dashboard displays a collection of visualizations and searches.
 This is a collection of dashboards, visualizations, and searches that you can use to organize and view your Elastic APM data.
