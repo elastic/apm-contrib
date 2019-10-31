@@ -1,10 +1,11 @@
 ## Stack Quickstart
 
 This folder contains a minimal `docker-compose.yml` for quickly bringing up an Elastic APM stack.
-To get started, clone this repository and run:
+Get started by downloading it and bringing up a few containers:
 
 ```sh
-docker-compose -f stack/docker-compose.yml up
+curl -sLO https://raw.githubusercontent.com/elastic/apm-contrib/master/stack/docker-compose.yml
+docker-compose up
 ```
 
 This will download docker container images for Elasticsearch, Kibana, and APM Server and start each service.
