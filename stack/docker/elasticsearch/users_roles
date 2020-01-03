@@ -1,0 +1,6 @@
+apm_server:apm_server_user
+apm_system:apm_server_user
+apm_user:apm_user_ro
+kibana_system:kibana_system_user
+kibana_user:apm_user_ro,beats_user,filebeat_user,heartbeat_user,metricbeat_user
+superuser:admin
