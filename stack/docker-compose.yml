@@ -57,15 +57,7 @@
         "-E",
         "apm-server.agent.config.cache.expiration=30s",
         "-E",
-        "apm-server.kibana.username=apm_server_user",
-        "-E",
-        "apm-server.kibana.password=changeme",
-        "-E",
         "output.elasticsearch.hosts=[\"elasticsearch:9200\"]",
-        "-E",
-        "output.elasticsearch.username=apm_server_user",
-        "-E",
-        "output.elasticsearch.password=changeme",
         "-E",
         "output.elasticsearch.enabled=true",
         "-E",
@@ -123,12 +115,7 @@
         "path.repo=/usr/share/elasticsearch/data/backups",
         "ES_JAVA_OPTS=-XX:UseAVX=2 -Xms1g -Xmx1g",
         "path.data=/usr/share/elasticsearch/data/${STACK_VERSION:-7.5.1}",
-        "xpack.security.authc.anonymous.roles=remote_monitoring_collector",
-        "xpack.security.authc.realms.file.file1.order=0",
-        "xpack.security.authc.realms.native.native1.order=1",
-        "xpack.security.authc.token.enabled=true",
-        "xpack.security.authc.api_key.enabled=true",
-        "xpack.security.enabled=true",
+        "xpack.security.enabled=false",
         "xpack.license.self_generated.type=trial",
         "xpack.monitoring.collection.enabled=true"
       ],
@@ -161,10 +148,7 @@
         }
       },
       "volumes": [
-        "esdata:/usr/share/elasticsearch/data",
-        "./docker/elasticsearch/roles.yml:/usr/share/elasticsearch/config/roles.yml",
-        "./docker/elasticsearch/users:/usr/share/elasticsearch/config/users",
-        "./docker/elasticsearch/users_roles:/usr/share/elasticsearch/config/users_roles"
+        "esdata:/usr/share/elasticsearch/data"
       ]
     },
     "kibana": {
@@ -175,11 +159,8 @@
         }
       },
       "environment": {
-        "ELASTICSEARCH_PASSWORD": "changeme",
         "ELASTICSEARCH_URL": "elasticsearch:9200",
-        "ELASTICSEARCH_USERNAME": "kibana_system_user",
         "SERVER_NAME": "kibana.example.org",
-        "STATUS_ALLOWANONYMOUS": "true",
         "XPACK_MONITORING_ENABLED": "true",
         "XPACK_XPACK_MAIN_TELEMETRY_ENABLED": "false"
       },
