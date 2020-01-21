@@ -1,6 +1,6 @@
 # Simple integration between Grails and Elastic APM
 
-1. Add dependency to apm-agent-api
+## Add dependency to apm-agent-api
 
 Replace `1.12.0` with the current/required agent version.
 ```
@@ -9,7 +9,7 @@ dependencies {
 }
 ```
 
-1. Add Interceptor to application
+## Add Interceptor to application
 
 Create an interceptor in `grails-app/controllers`, for example `ApmInterceptor.groovy`.
 
@@ -35,7 +35,7 @@ class ApmInterceptor {
 }
 ```
 
-1. compile, package and run the application with agent
+## compile, package and run the application with agent
 
 For example, when running application with `./gradlew bootRun`, in `build.gradle`:
 Replace elastic agent jar path in `build.gradle`, and provide suitable Elastic APM server URL.
