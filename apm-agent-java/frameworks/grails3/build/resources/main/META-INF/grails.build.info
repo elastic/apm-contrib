@@ -1,6 +1,0 @@
-#Mon, 20 Jan 2020 16:15:29 +0100
-
-info.app.version=0.1
-info.app.name=grails-testapp
-grails.env=production
-info.app.grailsVersion=3.3.11
