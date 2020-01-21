@@ -35,7 +35,7 @@ class ApmInterceptor {
 }
 ```
 
-## compile, package and run the application with agent
+## Compile, package and run the application with agent
 
 For example, when running application with `./gradlew bootRun`, in `build.gradle`:
 Replace elastic agent jar path in `build.gradle`, and provide suitable Elastic APM server URL.
