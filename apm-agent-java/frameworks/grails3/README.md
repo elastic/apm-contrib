@@ -43,11 +43,9 @@ Replace elastic agent jar path in `build.gradle`, and provide suitable Elastic A
 bootRun {
     jvmArgs = [
             "-javaagent:/path/to/elastic/agent/elastic-apm-agent-1.12.0.jar",
-            "-Dspring.output.ansi.enabled=always",
             "-Delastic.apm.server_url=http://localhost:8200",
             "-Delastic.apm.service_name=grails-app"
     ]
-    // ...
 }
 ```
 
