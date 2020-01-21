@@ -49,4 +49,4 @@ bootRun {
 }
 ```
 
-For other deployment options, refert to Elastic APM documentation.
+For other deployment options, refer to Elastic APM documentation.
