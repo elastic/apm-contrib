@@ -1,0 +1,58 @@
+version: "2"
+services:
+
+  frontend:
+    build:
+      context: ./otel-js-frontend
+    depends_on:
+      - opentelemetry-collector
+
+  backend:
+    build:
+      context: ./otel-python-backend
+    depends_on:
+      - opentelemetry-collector
+
+  pinger:
+    build:
+      context: ./elastic-pinger
+    environment:
+      - ELASTIC_APM_SERVER_URL=http://apm-server:8200
+    depends_on:
+      - apm-server
+
+  opentelemetry-collector:
+    image: otel/opentelemetry-collector-contrib-dev:latest
+    command: ["--config=/conf/collector-config.yml", "--log-level=DEBUG"]
+    volumes:
+      - ./collector-config.yml:/conf/collector-config.yml
+    depends_on:
+      - apm-server
+
+  apm-server:
+    image: docker.elastic.co/apm/apm-server:7.8.0
+    command:
+      - -e
+      - --E
+      - output.elasticsearch.hosts=["elasticsearch:9200"]
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.8.0
+    environment:
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - 9200:9200
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.8.0
+    ports:
+      - 5601:5601
+    depends_on:
+      - elasticsearch
+
