@@ -15,6 +15,7 @@
 | Python Agent              | [apm-agent-python][] | [📘 elastic.co][apm-agent-python-docs]  | [📂 contrib](apm-agent-python) |
 | Ruby Agent                | [apm-agent-ruby][]   | [📘 elastic.co][apm-agent-ruby-docs]    | [📂 contrib](apm-agent-ruby)   |
 | .NET Agent                | [apm-agent-dotnet][] | [📘 elastic.co][apm-agent-dotnet-docs]  | [📂 contrib](apm-agent-dotnet) |
+| PHP Agent                 | [apm-agent-php][]    | elastic.co - TBD                        | [📂 contrib](apm-agent-php)    |
 
 ## APM Contrib Repository
 
@@ -35,6 +36,7 @@ For more information about contributing, see the relevant `CONTRIBUTING` file:
 * [Python Agent](https://github.com/elastic/apm-agent-python/blob/master/CONTRIBUTING.md)
 * [Ruby Agent](https://github.com/elastic/apm-agent-ruby/blob/master/CONTRIBUTING.md)
 * [.NET Agent](https://github.com/elastic/apm-agent-dotnet/blob/master/CONTRIBUTING.md)
+* [PHP Agent](https://github.com/elastic/apm-agent-php/blob/master/CONTRIBUTING.md)
 
 ## Community Developed Agents
 
@@ -43,8 +45,6 @@ The following agents are developed and maintained by members of the community.
 | Project      | Repo                                                       | Docs                                    | Notes                       |
 | :----------- | :--------------------------------------------------------- | :-------------------------------------- | :-------------------------- |
 | Meteor Agent | [kschingiz/meteor-elastic-apm][apm-agent-meteor]           | [📘 README][apm-agent-meteor-docs]      |                             |
-| PHP Agent    | [philkra/elastic-apm-php-agent][apm-agent-php-philkra]     | [📘 README][apm-agent-php-philkra-docs] | Supports APM Server 6.2-6.x |
-| PHP Agent    | [speakol-ads/elastic-apm-php-agent][apm-agent-php-speakol] | [📘 README][apm-agent-php-speakol-docs] | Supports APM Server 6.5+    |
 
 [apm-server]: https://github.com/elastic/apm-server
 [apm-server-docs]: https://www.elastic.co/guide/en/apm/server/current/index.html
@@ -73,10 +73,8 @@ The following agents are developed and maintained by members of the community.
 [apm-agent-dotnet-docs]: https://www.elastic.co/guide/en/apm/agent/dotnet/current/index.html
 [apm-agent-dotnet]: https://github.com/elastic/apm-agent-dotnet
 
+[apm-agent-php-docs]: https://www.elastic.co/guide/en/apm/agent/php/current/index.html
+[apm-agent-php]: https://github.com/elastic/apm-agent-php
+
 [apm-agent-meteor]: https://github.com/kschingiz/meteor-elastic-apm
 [apm-agent-meteor-docs]: https://github.com/kschingiz/meteor-elastic-apm#readme
-
-[apm-agent-php-philkra]: https://github.com/philkra/elastic-apm-php-agent
-[apm-agent-php-philkra-docs]: https://github.com/philkra/elastic-apm-php-agent#readme
-[apm-agent-php-speakol]: https://github.com/speakol-ads/elastic-apm-php-agent
-[apm-agent-php-speakol-docs]: https://github.com/speakol-ads/elastic-apm-php-agent#readme
