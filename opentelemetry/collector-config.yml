@@ -1,10 +1,14 @@
 receivers:
   otlp:
-    endpoint: 0.0.0.0:55678
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:55680
+      http:
+        endpoint: 0.0.0.0:55681
 
 exporters:
   elastic:
-    apm_server_url: "http://apm-server:8200"
+    apm_server_url: http://apm-server:8200
 
 processors:
   batch:

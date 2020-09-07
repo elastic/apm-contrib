@@ -22,7 +22,7 @@ services:
       - apm-server
 
   opentelemetry-collector:
-    image: otel/opentelemetry-collector-contrib-dev:latest
+    image: otel/opentelemetry-collector-contrib:0.9.0
     command: ["--config=/conf/collector-config.yml", "--log-level=DEBUG"]
     volumes:
       - ./collector-config.yml:/conf/collector-config.yml
@@ -30,14 +30,14 @@ services:
       - apm-server
 
   apm-server:
-    image: docker.elastic.co/apm/apm-server:7.8.0
+    image: docker.elastic.co/apm/apm-server:7.9.1
     command:
       - -e
       - --E
       - output.elasticsearch.hosts=["elasticsearch:9200"]
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.8.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.1
     environment:
       - discovery.type=single-node
       - bootstrap.memory_lock=true
@@ -50,7 +50,7 @@ services:
         hard: -1
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:7.8.0
+    image: docker.elastic.co/kibana/kibana:7.9.1
     ports:
       - 5601:5601
     depends_on:
