@@ -3,15 +3,15 @@
 const { LogLevel } = require("@opentelemetry/core");
 const { NodeTracerProvider } = require("@opentelemetry/node");
 const { SimpleSpanProcessor } = require("@opentelemetry/tracing");
-const { CollectorExporter } = require('@opentelemetry/exporter-collector');
+const { CollectorTraceExporter } = require('@opentelemetry/exporter-collector');
 
 const provider = new NodeTracerProvider({ logLevel: LogLevel.ERROR });
 
 provider.addSpanProcessor(
   new SimpleSpanProcessor(
-    new CollectorExporter({
+    new CollectorTraceExporter({
       serviceName: "frontend",
-      url: 'opentelemetry-collector:55678'
+      url: 'http://opentelemetry-collector:55681/v1/trace'
     })
   )
 );
