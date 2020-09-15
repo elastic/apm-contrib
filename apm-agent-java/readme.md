@@ -11,3 +11,4 @@
 ## Sample integrations
 
 - [Grails3](./frameworks/grails3/README.md)
+- [Servlet2](./frameworks/servlet2/ApmServletFilter.java)
