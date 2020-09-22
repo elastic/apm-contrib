@@ -11,11 +11,11 @@
 | Go Agent                  | [apm-agent-go][]     | [📘 elastic.co][apm-agent-go-docs]      | [📂 contrib](apm-agent-go)     |
 | Java Agent                | [apm-agent-java][]   | [📘 elastic.co][apm-agent-java-docs]    | [📂 contrib](apm-agent-java)   |
 | JavaScript RUM Agent      | [apm-agent-rum-js][] | [📘 elastic.co][apm-agent-js-base-docs] | [📂 contrib](apm-agent-rum-js) |
+| .NET Agent                | [apm-agent-dotnet][] | [📘 elastic.co][apm-agent-dotnet-docs]  | [📂 contrib](apm-agent-dotnet) |
 | Node.js Agent             | [apm-agent-nodejs][] | [📘 elastic.co][apm-agent-nodejs-docs]  | [📂 contrib](apm-agent-nodejs) |
+| PHP Agent                 | [apm-agent-php][]    | [📘 elastic.co][apm-agent-php-docs]     | [📂 contrib](apm-agent-php)    |
 | Python Agent              | [apm-agent-python][] | [📘 elastic.co][apm-agent-python-docs]  | [📂 contrib](apm-agent-python) |
 | Ruby Agent                | [apm-agent-ruby][]   | [📘 elastic.co][apm-agent-ruby-docs]    | [📂 contrib](apm-agent-ruby)   |
-| .NET Agent                | [apm-agent-dotnet][] | [📘 elastic.co][apm-agent-dotnet-docs]  | [📂 contrib](apm-agent-dotnet) |
-| PHP Agent                 | [apm-agent-php][]    | elastic.co - TBD                        | [📂 contrib](apm-agent-php)    |
 
 ## APM Contrib Repository
 
@@ -32,11 +32,11 @@ For more information about contributing, see the relevant `CONTRIBUTING` file:
 * [Go Agent](https://github.com/elastic/apm-agent-go/blob/master/CONTRIBUTING.md)
 * [Java Agent](https://github.com/elastic/apm-agent-java/blob/master/CONTRIBUTING.md)
 * [JavaScript RUM Agent](https://github.com/elastic/apm-agent-rum-js/blob/master/CONTRIBUTING.md)
+* [.NET Agent](https://github.com/elastic/apm-agent-dotnet/blob/master/CONTRIBUTING.md)
 * [Node.js Agent](https://github.com/elastic/apm-agent-nodejs/blob/master/CONTRIBUTING.md)
+* [PHP Agent](https://github.com/elastic/apm-agent-php/blob/master/CONTRIBUTING.md)
 * [Python Agent](https://github.com/elastic/apm-agent-python/blob/master/CONTRIBUTING.md)
 * [Ruby Agent](https://github.com/elastic/apm-agent-ruby/blob/master/CONTRIBUTING.md)
-* [.NET Agent](https://github.com/elastic/apm-agent-dotnet/blob/master/CONTRIBUTING.md)
-* [PHP Agent](https://github.com/elastic/apm-agent-php/blob/master/CONTRIBUTING.md)
 
 ## Community Developed Agents
 
