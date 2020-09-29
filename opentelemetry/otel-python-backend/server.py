@@ -16,8 +16,8 @@ import logging
 from flask import Flask, request
 
 from opentelemetry import propagators, trace
-from opentelemetry.ext.wsgi import collect_request_attributes
-from opentelemetry.ext.otlp.trace_exporter import OTLPSpanExporter
+from opentelemetry.exporter.otlp.trace_exporter import OTLPSpanExporter
+from opentelemetry.instrumentation.flask import FlaskInstrumentor
 from opentelemetry.sdk.resources import Resource
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import SimpleExportSpanProcessor
@@ -26,27 +26,18 @@ logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
-trace.set_tracer_provider(TracerProvider(
-    resource=Resource({"service.name": "backend"})
-))
-tracer = trace.get_tracer_provider().get_tracer(__name__)
+FlaskInstrumentor().instrument_app(app)
 
-trace.get_tracer_provider().add_span_processor(
+tracer_provider = TracerProvider(resource=Resource.create({"service.name": "backend"}))
+tracer_provider.add_span_processor(
     SimpleExportSpanProcessor(OTLPSpanExporter(endpoint="opentelemetry-collector:55680"))
 )
+trace.set_tracer_provider(tracer_provider)
 
 
 @app.route("/backend")
 def server_request():
-    with tracer.start_as_current_span(
-        "GET /backend",
-        parent=propagators.extract(
-            lambda request, key: request.headers.get_all(key), request
-        )["current-span"],
-        kind=trace.SpanKind.SERVER,
-        attributes=collect_request_attributes(request.environ),
-    ) as foo:
-        return "served"
+    return "served"
 
 
 if __name__ == "__main__":
