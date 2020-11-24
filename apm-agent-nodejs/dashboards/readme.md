@@ -5,7 +5,7 @@ This is a collection of dashboards, visualizations, and searches that you can us
 
 ### Installation
 
-Dashboards are imported on the **Management > Saved objects** page.
+Dashboards are imported on the **Stack Management > Saved Objects** page.
 Full documentation on this process is available in [Kibana](https://www.elastic.co/guide/en/kibana/current/managing-saved-objects.html).
 
 After importing, visit the [Dashboard](https://www.elastic.co/guide/en/kibana/current/dashboard.html) tab to view and edit your imported dashboards.
