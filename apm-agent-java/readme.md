@@ -12,3 +12,12 @@
 
 - [Grails3](./frameworks/grails3/README.md)
 - [Servlet2](./frameworks/servlet2/ApmServletFilter.java)
+
+## Sample configurations
+
+- [Capture metrics through JMX](./configuration/jmx.md)
+- [Tracing methods](./configuration/trace_methods.md)
+
+## Sample dashboards
+
+- [Sample Kibana dashboards](./dashboards/readme.md)
