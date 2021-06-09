@@ -9,7 +9,7 @@
 | APM Server                | [apm-server][]       | [📘 elastic.co][apm-server-docs]        | [📂 contrib](apm-server)       |
 | APM UI                    | [apm-ui][]           | [📘 elastic.co][apm-ui-docs]            | [📂 contrib](apm-ui)           |
 | Go Agent                  | [apm-agent-go][]     | [📘 elastic.co][apm-agent-go-docs]      | [📂 contrib](apm-agent-go)     |
-| iOS Agent                 | [apm-agent-ios][]    | [📘 elastic.co][apm-agent-ios-docs]     | [📂 contrib](apm-agent-ios)    |
+| iOS Agent (🚧 In Development) | [apm-agent-ios][]    | [📘 elastic.co][apm-agent-ios-docs]     | [📂 contrib](apm-agent-ios)    |
 | Java Agent                | [apm-agent-java][]   | [📘 elastic.co][apm-agent-java-docs]    | [📂 contrib](apm-agent-java)   |
 | JavaScript RUM Agent      | [apm-agent-rum-js][] | [📘 elastic.co][apm-agent-js-base-docs] | [📂 contrib](apm-agent-rum-js) |
 | .NET Agent                | [apm-agent-dotnet][] | [📘 elastic.co][apm-agent-dotnet-docs]  | [📂 contrib](apm-agent-dotnet) |
