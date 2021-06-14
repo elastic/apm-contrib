@@ -9,6 +9,7 @@
 | APM Server                | [apm-server][]       | [📘 elastic.co][apm-server-docs]        | [📂 contrib](apm-server)       |
 | APM UI                    | [apm-ui][]           | [📘 elastic.co][apm-ui-docs]            | [📂 contrib](apm-ui)           |
 | Go Agent                  | [apm-agent-go][]     | [📘 elastic.co][apm-agent-go-docs]      | [📂 contrib](apm-agent-go)     |
+| iOS Agent (🚧 In Development) | [apm-agent-ios][]    | [📘 elastic.co][apm-agent-ios-docs]     | [📂 contrib](apm-agent-ios)    |
 | Java Agent                | [apm-agent-java][]   | [📘 elastic.co][apm-agent-java-docs]    | [📂 contrib](apm-agent-java)   |
 | JavaScript RUM Agent      | [apm-agent-rum-js][] | [📘 elastic.co][apm-agent-js-base-docs] | [📂 contrib](apm-agent-rum-js) |
 | .NET Agent                | [apm-agent-dotnet][] | [📘 elastic.co][apm-agent-dotnet-docs]  | [📂 contrib](apm-agent-dotnet) |
@@ -19,7 +20,7 @@
 
 ## APM Contrib Repository
 
-This is a collection of code and recipes to be used in conjunction with [Elastic APM](https://www.elastic.co/solutions/apm). The code here is not necessarily maintained by the core Elastic APM Team. 
+This is a collection of code and recipes to be used in conjunction with [Elastic APM](https://www.elastic.co/solutions/apm). The code here is not necessarily maintained by the core Elastic APM Team.
 
 ## Contributing
 
@@ -30,6 +31,7 @@ For more information about contributing, see the relevant `CONTRIBUTING` file:
 * [APM Server](https://github.com/elastic/apm-server/blob/master/CONTRIBUTING.md)
 * [APM UI](https://github.com/elastic/kibana/blob/master/CONTRIBUTING.md)
 * [Go Agent](https://github.com/elastic/apm-agent-go/blob/master/CONTRIBUTING.md)
+* [iOS Agent](https://github.com/elastic/apm-agent-ios/blob/master/CONTRIBUTING.md)
 * [Java Agent](https://github.com/elastic/apm-agent-java/blob/master/CONTRIBUTING.md)
 * [JavaScript RUM Agent](https://github.com/elastic/apm-agent-rum-js/blob/master/CONTRIBUTING.md)
 * [.NET Agent](https://github.com/elastic/apm-agent-dotnet/blob/master/CONTRIBUTING.md)
@@ -54,6 +56,9 @@ The following agents are developed and maintained by members of the community.
 
 [apm-agent-go]: https://github.com/elastic/apm-agent-go
 [apm-agent-go-docs]: https://www.elastic.co/guide/en/apm/agent/go/current/index.html
+
+[apm-agent-ios]: https://github.com/elastic/apm-agent-ios
+[apm-agent-ios-docs]: https://www.elastic.co/guide/en/apm/agent/swift/current/index.html
 
 [apm-agent-java]: https://github.com/elastic/apm-agent-java
 [apm-agent-java-docs]: https://www.elastic.co/guide/en/apm/agent/java/current/index.html
