@@ -4,7 +4,7 @@ This folder contains a minimal `docker-compose.yml` for quickly bringing up an E
 Get started by downloading it and bringing up a few containers:
 
 ```sh
-curl -sLO https://raw.githubusercontent.com/elastic/apm-contrib/master/stack/docker-compose.yml
+curl -sLO https://raw.githubusercontent.com/elastic/apm-contrib/main/stack/docker-compose.yml
 docker-compose up
 ```
 

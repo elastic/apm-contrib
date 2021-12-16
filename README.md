@@ -29,7 +29,7 @@ All contributions are welcome: recipes, visualizations, dashboards, ingest proce
 For more information about contributing, see the relevant `CONTRIBUTING` file:
 
 * [APM Server](https://github.com/elastic/apm-server/blob/master/CONTRIBUTING.md)
-* [APM UI](https://github.com/elastic/kibana/blob/master/CONTRIBUTING.md)
+* [APM UI](https://github.com/elastic/kibana/blob/main/CONTRIBUTING.md)
 * [Go Agent](https://github.com/elastic/apm-agent-go/blob/master/CONTRIBUTING.md)
 * [iOS Agent](https://github.com/elastic/apm-agent-ios/blob/master/CONTRIBUTING.md)
 * [Java Agent](https://github.com/elastic/apm-agent-java/blob/master/CONTRIBUTING.md)
@@ -51,7 +51,7 @@ The following agents are developed and maintained by members of the community.
 [apm-server]: https://github.com/elastic/apm-server
 [apm-server-docs]: https://www.elastic.co/guide/en/apm/server/current/index.html
 
-[apm-ui]: https://github.com/elastic/kibana/tree/master/x-pack/plugins/apm
+[apm-ui]: https://github.com/elastic/kibana/tree/main/x-pack/plugins/apm
 [apm-ui-docs]: https://www.elastic.co/guide/en/kibana/current/xpack-apm.html
 
 [apm-agent-go]: https://github.com/elastic/apm-agent-go
