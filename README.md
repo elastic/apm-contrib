@@ -49,7 +49,7 @@ The following agents are developed and maintained by members of the community.
 | Meteor Agent | [kschingiz/meteor-elastic-apm][apm-agent-meteor]           | [📘 README][apm-agent-meteor-docs]      |                             |
 
 [apm-server]: https://github.com/elastic/apm-server
-[apm-server-docs]: https://www.elastic.co/guide/en/apm/server/current/index.html
+[apm-server-docs]: https://www.elastic.co/guide/en/apm/guide/current/index.html
 
 [apm-ui]: https://github.com/elastic/kibana/tree/main/x-pack/plugins/apm
 [apm-ui-docs]: https://www.elastic.co/guide/en/kibana/current/xpack-apm.html
