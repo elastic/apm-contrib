@@ -4,7 +4,7 @@ Flask==1.1.2
 googleapis-common-protos==1.52.0
 grpcio==1.30.0
 itsdangerous==1.1.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 MarkupSafe==1.1.1
 opentelemetry-api==0.13b0
 opentelemetry-exporter-otlp==0.13b0
