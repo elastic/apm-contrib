@@ -50,6 +50,6 @@ After importing, visit the [Dashboard](https://www.elastic.co/guide/en/kibana/cu
 
 #### Agent Versions
 
-[8.x](8.x/agent-versions.ndjson)
+[7.x](7.x/agent-versions.ndjson) | [8.x](8.x/agent-versions.ndjson)
 
 ![Agent Versions Table ](8.x/agent-versions.png)
