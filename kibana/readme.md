@@ -45,3 +45,11 @@ After importing, visit the [Dashboard](https://www.elastic.co/guide/en/kibana/cu
 * Transaction times (visualization)
 * Transaction per minute (visualization)
 * Top transactions for time period (visualization)
+
+### Visualizations
+
+#### Agent Versions
+
+[8.x](8.x/agent-versions.ndjson)
+
+![Agent Versions Table ](8.x/agent-versions.png)
