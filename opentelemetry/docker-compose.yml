@@ -10,6 +10,8 @@ services:
   backend:
     build:
       context: ./otel-python-backend
+    environment:
+        - OTEL_SERVICE_NAME=backend
     depends_on:
       - opentelemetry-collector
 
