@@ -6,17 +6,26 @@ receivers:
       http:
         endpoint: 0.0.0.0:55681
 
-exporters:
-  elastic:
-    apm_server_url: http://apm-server:8200
 
-processors:
-  batch:
+exporters:
+  logging:
+    loglevel: debug
+  otlp/http:
+    # Elastic APM server https endpoint without the "https://" prefix
+    endpoint: "${OTEL_EXPORTER_OTLP_ENDPOINT}" 
+    tls:
+      ca_file: /config/certs/ca/ca.crt
+
 
 
 service:
   pipelines:
     traces:
       receivers: [otlp]
-      processors: [batch]
-      exporters: [elastic]
+      exporters: [logging, otlp/http]
+    metrics:
+      receivers: [otlp]
+      exporters: [logging, otlp/http]
+    logs:
+      receivers: [otlp]
+      exporters: [logging, otlp/http]

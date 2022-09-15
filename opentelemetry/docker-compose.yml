@@ -4,6 +4,8 @@ services:
   frontend:
     build:
       context: ./otel-js-frontend
+    environment:
+        - OTEL_SERVICE_NAME=frontend
     depends_on:
       - opentelemetry-collector
 
@@ -19,15 +21,18 @@ services:
     build:
       context: ./elastic-pinger
     environment:
-      - ELASTIC_APM_SERVER_URL=http://apm-server:8200
+      - ELASTIC_APM_SERVER_URL=https://apm-server:8200
     depends_on:
       - apm-server
 
   opentelemetry-collector:
-    image: otel/opentelemetry-collector-contrib:0.56.0
+    image: otel/opentelemetry-collector:latest
     command: ["--config=/conf/collector-config.yml"]
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=apm-server:8200
     volumes:
       - ./collector-config.yml:/conf/collector-config.yml
+      - ${PWD}/certs:/config/certs
     depends_on:
       - apm-server
 
@@ -39,8 +44,16 @@ services:
       - output.elasticsearch.hosts=["https://elastic:${ELASTIC_PASSWORD}@elasticsearch:${ES_PORT}"]
       - -E
       - output.elasticsearch.ssl.certificate_authorities=["/config/certs/ca/ca.crt"]
+      - -E
+      - apm-server.ssl.enabled=true
+      - -E
+      - apm-server.ssl.certificate="/config/certs/apm-server/apm-server.crt"
+      - -E
+      - apm-server.ssl.key="/config/certs/apm-server/apm-server.key"
     volumes:
       - ${PWD}/certs:/config/certs
+    depends_on:
+      - elasticsearch
 
   setup:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.4.1
@@ -68,6 +81,18 @@ services:
           "  - name: elasticsearch\n"\
           "    dns:\n"\
           "      - elasticsearch\n"\
+          "      - localhost\n"\
+          "    ip:\n"\
+          "      - 127.0.0.1\n"\
+          "  - name: kibana\n"\
+          "    dns:\n"\
+          "      - kibana\n"\
+          "      - localhost\n"\
+          "    ip:\n"\
+          "      - 127.0.0.1\n"\
+          "  - name: apm-server\n"\
+          "    dns:\n"\
+          "      - apm-server\n"\
           "      - localhost\n"\
           "    ip:\n"\
           "      - 127.0.0.1\n"\
