@@ -50,9 +50,14 @@ docker-compose up
 
 
 This will download Docker container images for Elasticsearch, Kibana, APM Server, and OpenTelemetry Collector, and
-build the custom application containers. Once they are all running, the demo application will automatically start
+build the custom application containers. 
+
+Then it will run a `setup` container to set up TLS certificates, exposing them on the `/certs` dir, and set up the credentials based on the `.env` file.
+
+Once they are all running, the demo application will automatically start
 producing APM data.
 
-Visit http://127.0.0.1:5601/app/apm to see the results!
+
+Visit http://127.0.0.1:5601/app/apm, click add APM Integration through (that will create the necessary indices to receive data) to see the results!
 
 *to stop*: hit ctrl-c to shut down all of the containers started
