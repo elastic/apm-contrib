@@ -1,20 +1,22 @@
-"use strict";
+/* tracing.js */
 
-const { LogLevel } = require("@opentelemetry/core");
-const { NodeTracerProvider } = require("@opentelemetry/node");
-const { SimpleSpanProcessor } = require("@opentelemetry/tracing");
-const { CollectorTraceExporter } = require('@opentelemetry/exporter-collector');
+// Require dependencies
+const opentelemetry = require("@opentelemetry/sdk-node");
+const { getNodeAutoInstrumentations } = require("@opentelemetry/auto-instrumentations-node");
+const {
+  OTLPTraceExporter,
+} = require("@opentelemetry/exporter-trace-otlp-http");
 
-const provider = new NodeTracerProvider({ logLevel: LogLevel.ERROR });
+const { diag, DiagConsoleLogger, DiagLogLevel } = require('@opentelemetry/api');
 
-provider.addSpanProcessor(
-  new SimpleSpanProcessor(
-    new CollectorTraceExporter({
-      serviceName: "frontend",
-      url: 'http://opentelemetry-collector:55681/v1/trace'
-    })
-  )
-);
+diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.INFO);
 
-provider.register();
-console.log("tracing initialized");
+const sdk = new opentelemetry.NodeSDK({
+  traceExporter: new OTLPTraceExporter({
+    url: 'http://opentelemetry-collector:55681/v1/traces',
+    headers: {},
+  }),
+  instrumentations: [getNodeAutoInstrumentations()]
+});
+
+sdk.start()
