@@ -32,7 +32,7 @@ FlaskInstrumentor().instrument_app(app)
 
 tracer_provider = TracerProvider()
 tracer_provider.add_span_processor(
-    SimpleSpanProcessor(OTLPSpanExporter(endpoint="opentelemetry-collector:55680", insecure=True))
+    SimpleSpanProcessor(OTLPSpanExporter(endpoint="opentelemetry-collector:55680"))
 )
 trace.set_tracer_provider(tracer_provider)
 
