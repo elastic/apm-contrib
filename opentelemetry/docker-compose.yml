@@ -20,8 +20,11 @@ services:
   pinger:
     build:
       context: ./elastic-pinger
+    volumes:
+      - ${PWD}/certs:/config/certs
     environment:
       - ELASTIC_APM_SERVER_URL=https://apm-server:8200
+      - ELASTIC_APM_SERVER_CA_CERT_FILE=/config/certs/ca/ca.crt
     depends_on:
       - apm-server
 
