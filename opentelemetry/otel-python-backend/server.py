@@ -15,22 +15,14 @@
 import logging
 from flask import Flask, request
 
-from opentelemetry import trace, metrics
+from opentelemetry import trace
 from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
-from opentelemetry.exporter.otlp.proto.grpc.metric_exporter import OTLPMetricExporter
 from opentelemetry.instrumentation.flask import FlaskInstrumentor
 from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.metrics import MeterProvider
-
-from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
 from opentelemetry.sdk.resources import SERVICE_NAME, Resource
 from opentelemetry.sdk.trace.export import (
     SimpleSpanProcessor
 )
-from opentelemetry.instrumentation.logging import LoggingInstrumentor
-
-LoggingInstrumentor(log_level=logging.DEBUG).instrument(set_logging_format=True)
-
 logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
@@ -42,17 +34,6 @@ tracer_provider.add_span_processor(
     SimpleSpanProcessor(OTLPSpanExporter(endpoint="opentelemetry-collector:55680", insecure=True))
 )
 trace.set_tracer_provider(tracer_provider)
-
-reader = PeriodicExportingMetricReader(
-    OTLPMetricExporter(endpoint="opentelemetry-collector:55680", insecure=True)
-)
-
-metrics_provider = MeterProvider(resource=Resource(attributes={
-    SERVICE_NAME: "backend"
-}), metric_readers=[reader])
-metrics.set_meter_provider(metrics_provider)
-
-
 
 
 @app.route("/backend")
