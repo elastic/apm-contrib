@@ -7,7 +7,9 @@ opentelemetry-exporter-otlp-proto-grpc==1.12.0
 opentelemetry-exporter-otlp-proto-http==1.12.0
 opentelemetry-instrumentation==0.33b0
 opentelemetry-instrumentation-flask==0.33b0
+opentelemetry-instrumentation-logging==0.33b0
 opentelemetry-instrumentation-wsgi==0.33b0
+opentelemetry-instrumentation-system-metrics==0.33b0
 opentelemetry-proto==1.12.0
 opentelemetry-sdk==1.12.0
 opentelemetry-semantic-conventions==0.33b0
