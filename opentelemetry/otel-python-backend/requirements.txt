@@ -13,7 +13,7 @@ opentelemetry-instrumentation-wsgi==0.13b0
 opentelemetry-instrumentation==0.13b0
 opentelemetry-proto==0.13b0
 opentelemetry-sdk==0.13b0
-protobuf==3.12.2
+protobuf==3.18.3
 six==1.15.0
 Werkzeug==1.0.1
 wrapt==1.12.1
