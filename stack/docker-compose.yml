@@ -37,8 +37,6 @@
         "-E",
         "logging.metrics.enabled=false",
         "-E",
-        "setup.kibana.host=kibana:5601",
-        "-E",
         "setup.template.settings.index.number_of_replicas=0",
         "-E",
         "setup.template.settings.index.number_of_shards=1",
@@ -49,7 +47,15 @@
         "-E",
         "monitoring.enabled=true",
         "-E",
+        "apm-server.rum.allow_headers=[\"x-custom-header\"]",
+        "-E",
         "apm-server.instrumentation.enabled=true",
+        "-E",
+        "apm-server.instrumentation.profiling.cpu.enabled=true",
+        "-E",
+        "apm-server.instrumentation.profiling.heap.enabled=true",
+        "-E",
+        "apm-server.mode=experimental",
         "-E",
         "apm-server.kibana.enabled=true",
         "-E",
@@ -57,7 +63,17 @@
         "-E",
         "apm-server.agent.config.cache.expiration=30s",
         "-E",
-        "output.elasticsearch.hosts=[\"elasticsearch:9200\"]",
+        "apm-server.jaeger.http.enabled=true",
+        "-E",
+        "apm-server.jaeger.http.host=0.0.0.0:14268",
+        "-E",
+        "apm-server.jaeger.grpc.enabled=true",
+        "-E",
+        "apm-server.jaeger.grpc.host=0.0.0.0:14250",
+        "-E",
+        "apm-server.sampling.keep_unsampled=true",
+        "-E",
+        "output.elasticsearch.hosts=[\"http://elasticsearch:9200\"]",
         "-E",
         "output.elasticsearch.enabled=true",
         "-E",
@@ -65,7 +81,7 @@
         "-E",
         "apm-server.register.ingest.pipeline.enabled=true"
       ],
-      "container_name": "localtesting_${STACK_VERSION:-7.5.1}_apm-server",
+      "container_name": "localtesting_${STACK_VERSION:-7.17.6}_apm-server",
       "depends_on": {
         "elasticsearch": {
           "condition": "service_healthy"
@@ -74,6 +90,9 @@
           "condition": "service_healthy"
         }
       },
+      "environment": [
+        "BEAT_STRICT_PERMS=false"
+      ],
       "healthcheck": {
         "interval": "10s",
         "retries": 12,
@@ -82,16 +101,18 @@
           "curl",
           "--write-out",
           "'HTTP %{http_code}'",
+          "-k",
           "--fail",
           "--silent",
           "--output",
           "/dev/null",
           "http://localhost:8200/"
-        ]
+        ],
+        "timeout": "5s"
       },
-      "image": "docker.elastic.co/apm/apm-server:${STACK_VERSION:-7.5.1}",
+      "image": "docker.elastic.co/apm/apm-server:${STACK_VERSION:-7.17.6}",
       "labels": [
-        "co.elastic.apm.stack-version=${STACK_VERSION:-7.5.1}"
+        "co.elastic.apm.stack-version=${STACK_VERSION:-7.17.6}"
       ],
       "logging": {
         "driver": "json-file",
@@ -102,11 +123,13 @@
       },
       "ports": [
         "127.0.0.1:8200:8200",
-        "127.0.0.1:6060:6060"
+        "127.0.0.1:6060:6060",
+        "127.0.0.1:14268:14268",
+        "127.0.0.1:14250:14250"
       ]
     },
     "elasticsearch": {
-      "container_name": "localtesting_${STACK_VERSION:-7.5.1}_elasticsearch",
+      "container_name": "localtesting_${STACK_VERSION:-7.17.6}_elasticsearch",
       "environment": [
         "bootstrap.memory_lock=true",
         "cluster.name=docker-cluster",
@@ -114,22 +137,25 @@
         "discovery.type=single-node",
         "path.repo=/usr/share/elasticsearch/data/backups",
         "ES_JAVA_OPTS=-XX:UseAVX=2 -Xms1g -Xmx1g",
-        "path.data=/usr/share/elasticsearch/data/${STACK_VERSION:-7.5.1}",
+        "path.data=/usr/share/elasticsearch/data/${STACK_VERSION:-7.17.6}",
         "xpack.security.enabled=false",
         "xpack.license.self_generated.type=trial",
         "xpack.monitoring.collection.enabled=true"
       ],
       "healthcheck": {
-        "interval": "20",
+        "interval": "20s",
         "retries": 10,
         "test": [
           "CMD-SHELL",
-          "curl -s http://localhost:9200/_cluster/health | grep -vq '\"status\":\"red\"'"
+          "curl -s -k http://localhost:9200/_cluster/health | grep -vq '\"status\":\"red\"'"
         ]
       },
-      "image": "docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION:-7.5.1}",
+      "image": "docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION:-7.17.6}",
       "labels": [
-        "co.elastic.apm.stack-version=${STACK_VERSION:-7.5.1}"
+        "co.elastic.apm.stack-version=${STACK_VERSION:-7.17.6}",
+        "co.elastic.metrics/module=elasticsearch",
+        "co.elastic.metrics/metricsets=node,node_stats",
+        "co.elastic.metrics/hosts=http://$${data.host}:9200"
       ],
       "logging": {
         "driver": "json-file",
@@ -152,36 +178,46 @@
       ]
     },
     "kibana": {
-      "container_name": "localtesting_${STACK_VERSION:-7.5.1}_kibana",
+      "container_name": "localtesting_${STACK_VERSION:-7.17.6}_kibana",
       "depends_on": {
         "elasticsearch": {
           "condition": "service_healthy"
         }
       },
       "environment": {
-        "ELASTICSEARCH_URL": "elasticsearch:9200",
+        "ELASTICSEARCH_HOSTS": "http://elasticsearch:9200",
+        "SERVER_HOST": "0.0.0.0",
         "SERVER_NAME": "kibana.example.org",
+        "TELEMETRY_ENABLED": "false",
+        "XPACK_APM_SERVICEMAPENABLED": "true",
+        "XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY": "fhjskloppd678ehkdfdlliverpoolfcr",
+        "XPACK_FLEET_AGENTS_ELASTICSEARCH_HOST": "http://elasticsearch:9200",
+        "XPACK_FLEET_AGENTS_KIBANA_HOST": "http://kibana:5601",
         "XPACK_MONITORING_ENABLED": "true",
+        "XPACK_SECURITY_ENCRYPTIONKEY": "fhjskloppd678ehkdfdlliverpoolfcr",
         "XPACK_XPACK_MAIN_TELEMETRY_ENABLED": "false"
       },
       "healthcheck": {
         "interval": "10s",
-        "retries": 20,
+        "retries": 30,
+        "start_period": "10s",
         "test": [
           "CMD",
           "curl",
           "--write-out",
           "'HTTP %{http_code}'",
+          "-k",
           "--fail",
           "--silent",
           "--output",
           "/dev/null",
           "http://kibana:5601/api/status"
-        ]
+        ],
+        "timeout": "5s"
       },
-      "image": "docker.elastic.co/kibana/kibana:${STACK_VERSION:-7.5.1}",
+      "image": "docker.elastic.co/kibana/kibana:${STACK_VERSION:-7.17.6}",
       "labels": [
-        "co.elastic.apm.stack-version=${STACK_VERSION:-7.5.1}"
+        "co.elastic.apm.stack-version=${STACK_VERSION:-7.17.6}"
       ],
       "logging": {
         "driver": "json-file",
@@ -193,9 +229,24 @@
       "ports": [
         "127.0.0.1:5601:5601"
       ]
+    },
+    "wait-service": {
+      "container_name": "wait",
+      "depends_on": {
+        "apm-server": {
+          "condition": "service_healthy"
+        },
+        "elasticsearch": {
+          "condition": "service_healthy"
+        },
+        "kibana": {
+          "condition": "service_healthy"
+        }
+      },
+      "image": "busybox"
     }
   },
-  "version": "2.1",
+  "version": "2.4",
   "volumes": {
     "esdata": {
       "driver": "local"

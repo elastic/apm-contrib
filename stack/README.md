@@ -21,5 +21,5 @@ Visit http://localhost:5601/app/apm to see the results!
 This `docker-compose.yml` was generated from the [apm-integration-testing repository](https://github.com/elastic/apm-integration-testing) with:
 
 ```sh
-./scripts/compose.py start 7.5.1 --release --no-xpack-secure --docker-compose-path - | sed 's/7.5.1/${STACK_VERSION:-7.5.1}/'
+./scripts/compose.py start 7.17.6 --release --no-xpack-secure --docker-compose-path - | sed 's/7.17.6/${STACK_VERSION:-7.17.6}/'
 ```
