@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"time"
 
-	"go.elastic.co/apm"
-	"go.elastic.co/apm/module/apmhttp"
+	"go.elastic.co/apm/module/apmhttp/v2"
+	"go.elastic.co/apm/v2"
 )
 
 const url = "http://frontend:8080/"
@@ -14,7 +14,7 @@ const url = "http://frontend:8080/"
 var httpClient = apmhttp.WrapClient(http.DefaultClient)
 
 func pingService(ctx context.Context) {
-	tx := apm.DefaultTracer.StartTransaction("ping", "background")
+	tx := apm.DefaultTracer().StartTransaction("ping", "background")
 	defer tx.End()
 	ctx = apm.ContextWithTransaction(ctx, tx)
 
