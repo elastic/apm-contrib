@@ -10,8 +10,7 @@ const provider = new NodeTracerProvider({ logLevel: LogLevel.ERROR });
 provider.addSpanProcessor(
   new SimpleSpanProcessor(
     new CollectorTraceExporter({
-      serviceName: "frontend",
-      url: 'http://opentelemetry-collector:55681/v1/trace'
+      serviceName: "frontend"
     })
   )
 );

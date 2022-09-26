@@ -5,27 +5,25 @@ services:
     build:
       context: ./otel-js-frontend
     depends_on:
-      - opentelemetry-collector
+      - apm-server
+    environment:
+      OTEL_EXPORTER_OTLP_ENDPOINT: apm-server:8200
+      OTEL_EXPORTER_OTLP_TRACES_INSECURE: true
 
   backend:
     build:
       context: ./otel-python-backend
     depends_on:
-      - opentelemetry-collector
+      - apm-server
+    environment:
+      OTEL_EXPORTER_OTLP_ENDPOINT: apm-server:8200
+      OTEL_EXPORTER_OTLP_TRACES_INSECURE: true
 
   pinger:
     build:
       context: ./elastic-pinger
     environment:
       - ELASTIC_APM_SERVER_URL=http://apm-server:8200
-    depends_on:
-      - apm-server
-
-  opentelemetry-collector:
-    image: otel/opentelemetry-collector-contrib:0.60.0
-    command: ["--config=/conf/collector-config.yml", "--log-level=DEBUG"]
-    volumes:
-      - ./collector-config.yml:/conf/collector-config.yml
     depends_on:
       - apm-server
 
