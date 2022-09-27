@@ -16,11 +16,11 @@ import logging
 from flask import Flask, request
 
 from opentelemetry import propagators, trace
-from opentelemetry.exporter.otlp.trace_exporter import OTLPSpanExporter
+from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
 from opentelemetry.instrumentation.flask import FlaskInstrumentor
 from opentelemetry.sdk.resources import Resource
 from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import SimpleExportSpanProcessor
+from opentelemetry.sdk.trace.export import SimpleSpanProcessor
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -30,7 +30,7 @@ FlaskInstrumentor().instrument_app(app)
 
 tracer_provider = TracerProvider(resource=Resource.create({"service.name": "backend"}))
 tracer_provider.add_span_processor(
-    SimpleExportSpanProcessor(OTLPSpanExporter(endpoint="opentelemetry-collector:55680"))
+    SimpleSpanProcessor(OTLPSpanExporter())
 )
 trace.set_tracer_provider(tracer_provider)
 
