@@ -8,6 +8,7 @@
 | :------------------------ | :------------------- | :-------------------------------------- | :----------------------------- |
 | APM Server                | [apm-server][]       | [📘 elastic.co][apm-server-docs]        | [📂 contrib](apm-server)       |
 | APM UI                    | [apm-ui][]           | [📘 elastic.co][apm-ui-docs]            | [📂 contrib](apm-ui)           |
+| Android Agent (🚧 In Development) | [apm-agent-android][] | [📘 elastic.co][apm-agent-android-docs] | [📂 contrib](apm-agent-android)
 | Go Agent                  | [apm-agent-go][]     | [📘 elastic.co][apm-agent-go-docs]      | [📂 contrib](apm-agent-go)     |
 | iOS Agent (🚧 In Development) | [apm-agent-ios][]    | [📘 elastic.co][apm-agent-ios-docs]     | [📂 contrib](apm-agent-ios)    |
 | Java Agent                | [apm-agent-java][]   | [📘 elastic.co][apm-agent-java-docs]    | [📂 contrib](apm-agent-java)   |
@@ -30,6 +31,7 @@ For more information about contributing, see the relevant `CONTRIBUTING` file:
 
 * [APM Server](https://github.com/elastic/apm-server/blob/master/CONTRIBUTING.md)
 * [APM UI](https://github.com/elastic/kibana/blob/main/CONTRIBUTING.md)
+* [Android Agent](https://github.com/elastic/apm-agent-agent/blob/master/CONTRIBUTING.md)
 * [Go Agent](https://github.com/elastic/apm-agent-go/blob/master/CONTRIBUTING.md)
 * [iOS Agent](https://github.com/elastic/apm-agent-ios/blob/master/CONTRIBUTING.md)
 * [Java Agent](https://github.com/elastic/apm-agent-java/blob/master/CONTRIBUTING.md)
@@ -53,6 +55,9 @@ The following agents are developed and maintained by members of the community.
 
 [apm-ui]: https://github.com/elastic/kibana/tree/main/x-pack/plugins/apm
 [apm-ui-docs]: https://www.elastic.co/guide/en/kibana/current/xpack-apm.html
+
+[apm-agent-android]: https://github.com/elastic/apm-agent-android
+[apm-agent-android-docs]: https://www.elastic.co/guide/en/apm/agent/android/current/index.html
 
 [apm-agent-go]: https://github.com/elastic/apm-agent-go
 [apm-agent-go-docs]: https://www.elastic.co/guide/en/apm/agent/go/current/index.html
