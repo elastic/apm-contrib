@@ -31,7 +31,7 @@ For more information about contributing, see the relevant `CONTRIBUTING` file:
 
 * [APM Server](https://github.com/elastic/apm-server/blob/master/CONTRIBUTING.md)
 * [APM UI](https://github.com/elastic/kibana/blob/main/CONTRIBUTING.md)
-* [Android Agent](https://github.com/elastic/apm-agent-agent/blob/master/CONTRIBUTING.md)
+* [Android Agent](https://github.com/elastic/apm-agent-android/blob/main/CONTRIBUTING.md)
 * [Go Agent](https://github.com/elastic/apm-agent-go/blob/master/CONTRIBUTING.md)
 * [iOS Agent](https://github.com/elastic/apm-agent-ios/blob/master/CONTRIBUTING.md)
 * [Java Agent](https://github.com/elastic/apm-agent-java/blob/master/CONTRIBUTING.md)
