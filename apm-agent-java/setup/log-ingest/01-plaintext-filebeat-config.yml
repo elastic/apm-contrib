@@ -1,0 +1,53 @@
+
+# ============================== Filebeat inputs ===============================
+
+filebeat.inputs:
+
+- type: filestream
+  id: 01-plaintext-filestream
+  enabled: true
+  paths:
+    - ${app_log}
+  # exceptions are reported on multiple lines
+  # other examples can be found in doc : https://www.elastic.co/guide/en/beats/filebeat/current/multiline-examples.html#multiline
+  parsers:
+  - multiline:
+      type: pattern
+      pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+      negate: true
+      match: after
+
+# ============================== Filebeat modules ==============================
+
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+
+# ======================= Elasticsearch template setting =======================
+
+setup.template.settings:
+  index.number_of_shards: 1
+
+# ================================== General ===================================
+
+fields:
+  scenario: 01-plaintext
+
+# =============================== Elastic Cloud ================================
+
+cloud.id: "${cloud_id:CHANGEME}"
+cloud.auth: "${cloud_auth:CHANGEME}"
+
+# ================================== Outputs ===================================
+
+output.elasticsearch:
+  hosts: [ "${elasticsearch_host:CHANGEME}" ]
+  pipeline: log-ingest-plaintext
+
+# ================================= Processors =================================
+processors:
+  - add_host_metadata:
+      when.not.contains.tags: forwarded
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+  - add_kubernetes_metadata: ~
