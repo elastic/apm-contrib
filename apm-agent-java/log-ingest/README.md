@@ -35,10 +35,11 @@ In addition to the Elastic stack, there are 3 main components:
 - `filebeat` : filebeat + setup ingest pipelines if needed
 
 All of the above are deployed in separate containers, but it is not a requirement.
+The `filebeat` and `app` containers use a shared volume to respectively read and write the application logs.
 
 ## Scenarios
 
-### Base
+### Base (00)
 
 This is the base application deployment before trying to ingest logs.
 Only the `app` and `client` containers are used, Filebeat and the Elastic stack is not used.
@@ -47,10 +48,14 @@ Only the `app` and `client` containers are used, Filebeat and the Elastic stack 
 docker-compose -f ./00-base.yml up
 ```
 
-### Plain-text logs
+### Plain-text logs (01)
 
-Application logging format is modified to include the correlation IDs
-APM agent is 
+Application plaintext logging format is modified to include the correlation IDs.
+
+APM agent injects the log correlation IDs at runtime.
+
+Filebeat is configured by the `01-plaintext-filebeat-config.yml`
+
 ```
-./01-plaintext-filebeat.yml 
+docker-compose -f ./01-plaintext-filebeat.yml up
 ```

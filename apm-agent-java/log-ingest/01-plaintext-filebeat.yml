@@ -18,6 +18,9 @@ services:
       FILE_LOG_PATTERN: '%d{yyyy-MM-dd''T''HH:mm:ss.SSSXXX} %5p ${PID:- } --- [%t] (%-40.40logger{39}: %m --- %X{trace.id},%X{transaction.id},%X{error.id}%n%wEx'
       # make the app also write logs to file
       LOGGING_FILE_NAME: /var/log/app/app.log
+      # APM agent configuration provided from .env file
+      ELASTIC_APM_SECRET_TOKEN: "${apm_secret_token}"
+      ELASTIC_APM_SERVER_URL: "${apm_server_url}"
 
   client:
     container_name: logs-client
