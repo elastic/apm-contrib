@@ -2,13 +2,18 @@
 
 base_url=${BASE_URL:-http://localhost:8080}
 
+doGet(){
+	curl ${base_url}${1}
+}
+
 sleep 60
 
 while :
 do
 	echo "Press [CTRL+C] to stop.."
-	curl ${base_url}/hello
+    sleep 30
 	echo "---"
-  curl ${base_url}/errorLog
-  sleep 30
+    doGet /hello
+	echo "---"
+    doGet /errorLog
 done
