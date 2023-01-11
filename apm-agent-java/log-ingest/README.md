@@ -45,7 +45,8 @@ This is the base application deployment before trying to ingest logs.
 Only the `app` and `client` containers are used, Filebeat and the Elastic stack is not used.
 
 ```
-docker-compose -f ./00-base.yml up
+docker-compose -f ./00-compose.yml up
+docker-compose -f ./00-compose.yml down
 ```
 
 ### Plain-text logs (01)
@@ -57,5 +58,6 @@ APM agent injects the log correlation IDs at runtime.
 Filebeat is configured by the `01-plaintext-filebeat-config.yml`
 
 ```
-docker-compose -f ./01-plaintext-filebeat.yml up
+docker-compose -f ./01-compose.yml up
+docker-compose -f ./01-compose.yml down
 ```

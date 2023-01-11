@@ -16,6 +16,10 @@ filebeat.inputs:
       pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
       negate: true
       match: after
+  # add service fields
+  fields_under_root: true
+  fields:
+    service.name: ${service_name}
 
 # ============================== Filebeat modules ==============================
 
@@ -27,11 +31,6 @@ filebeat.config.modules:
 
 setup.template.settings:
   index.number_of_shards: 1
-
-# ================================== General ===================================
-
-fields:
-  scenario: 01-plaintext
 
 # =============================== Elastic Cloud ================================
 

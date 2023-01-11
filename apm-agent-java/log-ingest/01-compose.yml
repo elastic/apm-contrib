@@ -40,6 +40,8 @@ services:
       cloud_auth: "${cloud_auth}"
       # path to log file
       app_log: /var/log/app/app.log
+      # name of the service, should be equal to ELASTIC_APM_SERVICE_NAME
+      service_name: app-01
 
 volumes:
   shared-volume:
