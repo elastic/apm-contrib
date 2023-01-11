@@ -3,13 +3,13 @@ version: '3.9'
 
 services:
   app:
-    container_name: logs-app
+    container_name: logs-app-00
     build: ./app
     ports:
       - '8080:8080'
 
   client:
-    container_name: logs-client
+    container_name: logs-client-00
     build: ./client
     environment:
       BASE_URL: 'http://logs-app:8080'

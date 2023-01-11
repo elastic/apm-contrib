@@ -23,9 +23,17 @@ curl \
   ]
 }'
 
+# 'strict.perms' is required in docker as config will be mounted and won't have the expected permissions
+
 # check configuration
-filebeat -c filebeat.yml test output
+filebeat \
+    -c filebeat.yml \
+    -strict.perms=false \
+    test output
 
 
 # run filebeat
-filebeat -e -c filebeat.yml
+filebeat \
+    -c filebeat.yml \
+    -strict.perms=false \
+    -e
