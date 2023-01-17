@@ -55,9 +55,21 @@ Application plaintext logging format is modified to include the correlation IDs.
 
 APM agent injects the log correlation IDs at runtime.
 
-Filebeat is configured by the `01-plaintext-filebeat-config.yml`
+Filebeat is configured to send the plaintext log file (see `01-filebeat.yml` for details).
 
 ```
 docker-compose -f ./01-compose.yml up
 docker-compose -f ./01-compose.yml down
+```
+### ECS Reformatting (02)
+
+Application logging configuration is not modified.
+
+APM agent reformats the log output to ECS-JSON format and injects the log correlation IDs at runtime.
+
+Filebeat is configured to send the ECS-JSON log file (see `02-filebeat.yml` for details).
+
+```
+docker-compose -f ./02-compose.yml up
+docker-compose -f ./02-compose.yml down
 ```
