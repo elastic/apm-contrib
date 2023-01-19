@@ -3,12 +3,12 @@ version: '3.9'
 services:
 
   app:
-    container_name: logs-app-02
+    container_name: logs-app-03
     build: ./app
     ports:
       - '8080:8080'
     volumes:
-      - shared-volume-02:/var/log/app/
+      - shared-volume-03:/var/log/app/
     environment:
       # Application: log to file
       LOGGING_FILE_NAME: /var/log/app/app.log
@@ -16,27 +16,27 @@ services:
       ELASTIC_APM_SERVER_URL: "${apm_server_url}"
       ELASTIC_APM_SECRET_TOKEN: "${apm_secret_token}"
       # APM agent static configuration
-      ELASTIC_APM_SERVICE_NAME: app-02
+      ELASTIC_APM_SERVICE_NAME: app-03
       ELASTIC_APM_CLOUD_PROVIDER: none
       # enable agent ECS reformatting 
       ELASTIC_APM_LOG_ECS_REFORMATTING: shade
       ELASTIC_APM_LOG_ECS_REFORMATTING_DIR: /var/log/app
 
   client:
-    container_name: logs-client-02
+    container_name: logs-client-03
     build: ./client
     environment:
-      BASE_URL: 'http://logs-app-02:8080'
+      BASE_URL: 'http://logs-app-03:8080'
 
   filebeat:
-    container_name: logs-filebeat-02
+    container_name: logs-filebeat-03
     build:
       context: ./filebeat
       args:
         ELASTIC_STACK_VERSION: '8.6.0'
     volumes:
-      - shared-volume-02:/var/log/app/
-      - ./02-filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - shared-volume-03:/var/log/app/
+      - ./03-filebeat.yml:/usr/share/filebeat/filebeat.yml
     environment:
       # authentication, values provided through .env file
       elasticsearch_host: "${elasticsearch_host}"
@@ -46,4 +46,4 @@ services:
       app_log: /var/log/app/app.ecs.json
 
 volumes:
-  shared-volume-02:
+  shared-volume-03:
