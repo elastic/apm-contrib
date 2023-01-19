@@ -12,7 +12,7 @@ COPY ./run.sh /run.sh
 RUN chmod +x /run.sh
 
 # temp hack to get latest snapshot agent
-RUN curl -o '/agent.jar' -L 'https://apm-ci.elastic.co/job/apm-agent-java/job/apm-agent-java-mbp/job/main/lastSuccessfulBuild/artifact/src/github.com/elastic/apm-agent-java/elastic-apm-agent/target/elastic-apm-agent-1.35.1-SNAPSHOT.jar'
+RUN curl -s -o '/agent.jar' -L 'https://apm-ci.elastic.co/job/apm-agent-java/job/apm-agent-java-mbp/job/main/lastSuccessfulBuild/artifact/src/github.com/elastic/apm-agent-java/elastic-apm-agent/target/elastic-apm-agent-1.35.1-SNAPSHOT.jar'
 
 EXPOSE 8080
 ENTRYPOINT ["/run.sh"]
