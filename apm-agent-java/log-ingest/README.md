@@ -45,30 +45,35 @@ This is the base application deployment before trying to ingest logs.
 Only the `app` and `client` containers are used, Filebeat and the Elastic stack is not used.
 
 ```
-# only required once
-docker-compose -f ./00-compose.yml build
-
-docker-compose -f ./00-compose.yml up
-docker-compose -f ./00-compose.yml down
+./build-and-run.sh 00
 ```
 
 ### Plain-text logs (01)
 
 Application plaintext logging format is modified to include the correlation IDs.
+Logging is configured by `01-app-logging.xml`.
 
 APM agent injects the log correlation IDs at runtime.
 
 Filebeat is configured to send the plaintext log file (see `01-filebeat.yml` for details).
 
 ```
-# only required once
-docker-compose -f ./01-compose.yml build
-
-docker-compose -f ./01-compose.yml up
-docker-compose -f ./01-compose.yml down
+./build-and-run.sh 01
 ```
 
 ### ECS Logging (02)
+
+Application logging format is modified to use the ECS logging library.
+The ECS logging library had been previously added into the application, but wasn't used.
+Logging is configured by `02-app-logging.xml`.
+
+APM agent injects the log correlation IDs at runtime (and also the `service.name` and `service.version` if they aren't provided).
+
+Filebeat is configured to send the ECS-JSON log file (see `02-filebeat.yml` for details).
+
+```
+./build-and-run.sh 02
+```
 
 ### ECS Reformatting (03)
 
@@ -79,11 +84,7 @@ APM agent reformats the log output to ECS-JSON format and injects the log correl
 Filebeat is configured to send the ECS-JSON log file (see `03-filebeat.yml` for details).
 
 ```
-# only required once
-docker-compose -f ./03-compose.yml build
-
-docker-compose -f ./03-compose.yml up
-docker-compose -f ./03-compose.yml down
+./build-and-run.sh 03
 ```
 
 ### Log sending (04)
@@ -93,9 +94,5 @@ Application and its configuration are not modified (besides the extra `-javaagen
 APM agent sends the logs directly to APM server (without filebeat) and injects the log correlation IDs at runtime.
 
 ```
-# only required once
-docker-compose -f ./04-compose.yml build
-
-docker-compose -f ./04-compose.yml up
-docker-compose -f ./04-compose.yml down
+./build-and-run.sh 04
 ```
