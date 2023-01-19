@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- makes the whole app default to ECS logs, as an alternative the default could have been kept -->
 <configuration>
-    <property name="LOG_FILE" value="${ECS_LOGGING_FILE_NAME:-app.ecs.json}"/>
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
     <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
@@ -9,8 +8,6 @@
     <include resource="co/elastic/logging/logback/boot/ecs-file-appender.xml" />
     <root level="INFO">
         <appender-ref ref="ECS_JSON_CONSOLE"/>
-        <appender-ref ref="CONSOLE"/>
         <appender-ref ref="ECS_JSON_FILE"/>
-        <appender-ref ref="FILE"/>
     </root>
 </configuration>

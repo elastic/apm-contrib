@@ -11,9 +11,12 @@ services:
       - shared-volume-02:/var/log/app/
       - ./02-app-logging.xml:/app-logging.xml
     environment:
-      # Application: use custom log config + log to ECS formatted file
+      # Application: use custom log config
       LOGGING_CONFIG: /app-logging.xml
-      ECS_LOGGING_FILE_NAME: /var/log/app/app.ecs.json
+      # Application ECS logging configuration (the .json suffix is added by ECS_JSON_APPENDER)
+      # the service name defaults to 'spring-boot-application' if not explicitly set
+      LOG_FILE: /var/log/app/app.ecs
+      SERVICE_NAME: app-02
       # APM agent configuration & credentials provided from .env file
       ELASTIC_APM_SERVER_URL: "${apm_server_url}"
       ELASTIC_APM_SECRET_TOKEN: "${apm_secret_token}"
