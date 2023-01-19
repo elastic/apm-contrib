@@ -3,7 +3,7 @@
 base_url=${BASE_URL:-http://localhost:8080}
 
 doGet(){
-	curl ${base_url}${1}
+	curl -s ${base_url}${1}
 }
 
 sleep 60
