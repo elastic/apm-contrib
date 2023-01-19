@@ -8,7 +8,7 @@ services:
     ports:
       - '8080:8080'
     volumes:
-      - shared-volume:/var/log/app/
+      - shared-volume-02:/var/log/app/
     environment:
       # Application: log to file
       LOGGING_FILE_NAME: /var/log/app/app.log
@@ -35,7 +35,7 @@ services:
       args:
         ELASTIC_STACK_VERSION: '8.6.0'
     volumes:
-      - shared-volume:/var/log/app/
+      - shared-volume-02:/var/log/app/
       - ./02-filebeat.yml:/usr/share/filebeat/filebeat.yml
     environment:
       # authentication, values provided through .env file
@@ -46,4 +46,4 @@ services:
       app_log: /var/log/app/app.ecs.json
 
 volumes:
-  shared-volume:
+  shared-volume-02:
