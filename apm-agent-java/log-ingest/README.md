@@ -61,6 +61,7 @@ Filebeat is configured to send the plaintext log file (see `01-filebeat.yml` for
 docker-compose -f ./01-compose.yml up
 docker-compose -f ./01-compose.yml down
 ```
+
 ### ECS Reformatting (02)
 
 Application logging configuration is not modified.
@@ -72,4 +73,15 @@ Filebeat is configured to send the ECS-JSON log file (see `02-filebeat.yml` for 
 ```
 docker-compose -f ./02-compose.yml up
 docker-compose -f ./02-compose.yml down
+```
+
+### Log sending (03)
+
+Application and its configuration are not modified (besides the extra `-javaagent:` JVM argument and environment variables.
+
+APM agent sends the logs directly to APM server (without filebeat) and injects the log correlation IDs at runtime.
+
+```
+docker-compose -f ./03-compose.yml up
+docker-compose -f ./03-compose.yml down
 ```
