@@ -84,7 +84,7 @@ docker-compose -f ./02-compose.yml up
 docker-compose -f ./02-compose.yml down
 ```
 
-### Log sending (03)
+### Log sending (04)
 
 Application and its configuration are not modified (besides the extra `-javaagent:` JVM argument and environment variables.
 
@@ -92,8 +92,8 @@ APM agent sends the logs directly to APM server (without filebeat) and injects t
 
 ```
 # only required once
-docker-compose -f ./03-compose.yml build
+docker-compose -f ./04-compose.yml build
 
-docker-compose -f ./03-compose.yml up
-docker-compose -f ./03-compose.yml down
+docker-compose -f ./04-compose.yml up
+docker-compose -f ./04-compose.yml down
 ```
