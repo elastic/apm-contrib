@@ -45,6 +45,9 @@ This is the base application deployment before trying to ingest logs.
 Only the `app` and `client` containers are used, Filebeat and the Elastic stack is not used.
 
 ```
+# only required once
+docker-compose -f ./00-compose.yml build
+
 docker-compose -f ./00-compose.yml up
 docker-compose -f ./00-compose.yml down
 ```
@@ -58,6 +61,9 @@ APM agent injects the log correlation IDs at runtime.
 Filebeat is configured to send the plaintext log file (see `01-filebeat.yml` for details).
 
 ```
+# only required once
+docker-compose -f ./01-compose.yml build
+
 docker-compose -f ./01-compose.yml up
 docker-compose -f ./01-compose.yml down
 ```
@@ -71,6 +77,9 @@ APM agent reformats the log output to ECS-JSON format and injects the log correl
 Filebeat is configured to send the ECS-JSON log file (see `02-filebeat.yml` for details).
 
 ```
+# only required once
+docker-compose -f ./02-compose.yml build
+
 docker-compose -f ./02-compose.yml up
 docker-compose -f ./02-compose.yml down
 ```
@@ -82,6 +91,9 @@ Application and its configuration are not modified (besides the extra `-javaagen
 APM agent sends the logs directly to APM server (without filebeat) and injects the log correlation IDs at runtime.
 
 ```
+# only required once
+docker-compose -f ./03-compose.yml build
+
 docker-compose -f ./03-compose.yml up
 docker-compose -f ./03-compose.yml down
 ```
