@@ -2,6 +2,7 @@
 
 # create/update our ingest pipeline
 curl \
+  -s \
   -u "${cloud_auth}" \
   -XPUT \
   "https://${elasticsearch_host}/_ingest/pipeline/log-ingest-plaintext" \

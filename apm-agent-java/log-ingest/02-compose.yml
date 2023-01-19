@@ -9,8 +9,9 @@ services:
       - '8080:8080'
     volumes:
       - shared-volume:/var/log/app/
-      - ./02-app-env.sh:/env.sh
     environment:
+      # Application: log to file
+      LOGGING_FILE_NAME: /var/log/app/app.log
       # APM agent configuration & credentials provided from .env file
       ELASTIC_APM_SERVER_URL: "${apm_server_url}"
       ELASTIC_APM_SECRET_TOKEN: "${apm_secret_token}"

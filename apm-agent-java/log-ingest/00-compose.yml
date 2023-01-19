@@ -12,5 +12,5 @@ services:
     container_name: logs-client-00
     build: ./client
     environment:
-      BASE_URL: 'http://logs-app:8080'
+      BASE_URL: 'http://logs-app-00:8080'
 
