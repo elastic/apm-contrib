@@ -10,7 +10,6 @@ filebeat.inputs:
     - ${app_log}
   parsers:
     - ndjson:
-      keys_under_root: true
       overwrite_keys: true
       add_error_key: true
       expand_keys: true
