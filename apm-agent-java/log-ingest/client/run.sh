@@ -6,7 +6,7 @@ doGet(){
 	curl -s ${base_url}${1}
 }
 
-sleep 60
+sleep 20
 
 while :
 do
