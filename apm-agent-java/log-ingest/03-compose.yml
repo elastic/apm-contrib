@@ -6,7 +6,7 @@ services:
     container_name: logs-app-03
     build: ./app
     ports:
-      - '8080:8080'
+      - '8083:8080'
     volumes:
       - shared-volume-03:/var/log/app/
     environment:
