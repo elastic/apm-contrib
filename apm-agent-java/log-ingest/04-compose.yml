@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+
+  app:
+    container_name: logs-app-04
+    build: ./app
+    ports:
+      - '8080:8080'
+    environment:
+      # APM agent configuration & credentials provided from .env file
+      ELASTIC_APM_SERVER_URL: "${apm_server_url}"
+      ELASTIC_APM_SECRET_TOKEN: "${apm_secret_token}"
+      # APM agent static configuration
+      ELASTIC_APM_SERVICE_NAME: app-04
+      ELASTIC_APM_CLOUD_PROVIDER: none
+      # just send the logs
+      ELASTIC_APM_LOG_SENDING: 'true'
+
+  client:
+    container_name: logs-client-04
+    build: ./client
+    environment:
+      BASE_URL: 'http://logs-app-04:8080'

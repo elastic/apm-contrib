@@ -1,0 +1,51 @@
+version: '3.9'
+
+services:
+
+  app:
+    container_name: logs-app-02
+    build: ./app
+    ports:
+      - '8082:8080'
+    volumes:
+      - shared-volume-02:/var/log/app/
+      - ./02-app-logging.xml:/app-logging.xml
+    environment:
+      # Application: use custom log config
+      LOGGING_CONFIG: /app-logging.xml
+      # Application ECS logging configuration (the .json suffix is added by ECS_JSON_APPENDER)
+      # the service name defaults to 'spring-boot-application' if not explicitly set
+      LOG_FILE: /var/log/app/app.ecs
+      SERVICE_NAME: app-02
+      # APM agent configuration & credentials provided from .env file
+      ELASTIC_APM_SERVER_URL: "${apm_server_url}"
+      ELASTIC_APM_SECRET_TOKEN: "${apm_secret_token}"
+      # APM agent static configuration
+      ELASTIC_APM_SERVICE_NAME: app-02
+      ELASTIC_APM_CLOUD_PROVIDER: none
+
+  client:
+    container_name: logs-client-02
+    build: ./client
+    environment:
+      BASE_URL: 'http://logs-app-02:8080'
+
+  filebeat:
+    container_name: logs-filebeat-02
+    build:
+      context: ./filebeat
+      args:
+        ELASTIC_STACK_VERSION: '8.6.0'
+    volumes:
+      - shared-volume-02:/var/log/app/
+      - ./02-filebeat.yml:/usr/share/filebeat/filebeat.yml
+    environment:
+      # authentication, values provided through .env file
+      elasticsearch_host: "${elasticsearch_host}"
+      cloud_id: "${cloud_id}"
+      cloud_auth: "${cloud_auth}"
+      # path to log file
+      app_log: /var/log/app/app.ecs.json
+
+volumes:
+  shared-volume-02:

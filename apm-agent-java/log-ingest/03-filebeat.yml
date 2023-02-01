@@ -1,0 +1,45 @@
+
+# ============================== Filebeat inputs ===============================
+
+filebeat.inputs:
+
+- type: filestream
+  id: 03-ecs-filestream
+  enabled: true
+  paths:
+    - ${app_log}
+  parsers:
+    - ndjson:
+      keys_under_root: true
+      overwrite_keys: true
+      add_error_key: true
+      expand_keys: true
+
+# ============================== Filebeat modules ==============================
+
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+
+# ======================= Elasticsearch template setting =======================
+
+setup.template.settings:
+  index.number_of_shards: 1
+
+# =============================== Elastic Cloud ================================
+
+cloud.id: "${cloud_id:CHANGEME}"
+cloud.auth: "${cloud_auth:CHANGEME}"
+
+# ================================== Outputs ===================================
+
+output.elasticsearch:
+  hosts: [ "${elasticsearch_host:CHANGEME}" ]
+
+# ================================= Processors =================================
+processors:
+  - add_host_metadata:
+      when.not.contains.tags: forwarded
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+  - add_kubernetes_metadata: ~
