@@ -37,12 +37,24 @@ In addition to the Elastic stack, there are 3 main components:
 All of the above are deployed in separate containers, but it is not a requirement.
 The `filebeat` and `app` containers use a shared volume to respectively read and write the application logs.
 
+The ingestion strategy used here is file-based in order to make it easier to understand and debug.
+That means the application writes to log files and Filebeat reads and ingest those into Elasticsearch, those log files
+can thus be easily open for inspection.
+
+In general, when using Docker or Kubernetes deployments the recommended approach is to make applications write their
+logs to the standard output and use Filebeat [autodiscover](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html) feature to ingest this standard output into Elasticsearch, which removes the need to write to files.
+
+The application image already contains the following to allow reusing the same image on all scenarios:
+- `ecs-logging-java` as an application dependency: not used by default, allows to configure ECS logging at deployment time through re-configuration.
+- Elastic Java APM Agent, the `/agent.jar` in image contains a copy of the Java agent. In the application entrypoint script, the `-javaagent:/agent.jar` parameter is added when `ELASTIC_APM_SERVICE_NAME` environment variable is set.
+
 ## Scenarios
 
 ### Base (00)
 
 This is the base application deployment before trying to ingest logs.
 Only the `app` and `client` containers are used, Filebeat and the Elastic stack is not used.
+The Java APM agent is not enabled.
 
 ```
 ./build-and-run.sh 00
@@ -79,7 +91,7 @@ Filebeat is configured to send the ECS-JSON log file (see `02-filebeat.yml` for 
 
 Application logging configuration is not modified.
 
-APM agent reformats the log output to ECS-JSON format and injects the log correlation IDs at runtime.
+APM agent re-formats the log output to ECS-JSON format and injects the log correlation IDs at runtime.
 
 Filebeat is configured to send the ECS-JSON log file (see `03-filebeat.yml` for details).
 
