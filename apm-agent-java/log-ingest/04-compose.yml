@@ -6,7 +6,7 @@ services:
     container_name: logs-app-04
     build: ./app
     ports:
-      - '8080:8080'
+      - '8084:8080'
     environment:
       # APM agent configuration & credentials provided from .env file
       ELASTIC_APM_SERVER_URL: "${apm_server_url}"

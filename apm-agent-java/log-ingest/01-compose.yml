@@ -49,3 +49,5 @@ services:
 volumes:
   shared-volume-01:
 
+networks:
+  network-01:
