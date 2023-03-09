@@ -34,7 +34,7 @@ cloud.auth: "${cloud_auth:CHANGEME}"
 # ================================== Outputs ===================================
 
 output.elasticsearch:
-  hosts: [ "${elasticsearch_host:CHANGEME}" ]
+  hosts: [ "https://${elasticsearch_host:CHANGEME}" ]
 
 # ================================= Processors =================================
 processors:
