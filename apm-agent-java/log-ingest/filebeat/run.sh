@@ -36,5 +36,4 @@ filebeat \
 # run filebeat
 filebeat \
     -c filebeat.yml \
-    -strict.perms=false \
-    -e
+    -strict.perms=false
