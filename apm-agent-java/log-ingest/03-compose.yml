@@ -33,7 +33,7 @@ services:
     build:
       context: ./filebeat
       args:
-        ELASTIC_STACK_VERSION: '8.6.0'
+        ELASTIC_STACK_VERSION: '8.6.2'
     volumes:
       - shared-volume-03:/var/log/app/
       - ./03-filebeat.yml:/usr/share/filebeat/filebeat.yml
