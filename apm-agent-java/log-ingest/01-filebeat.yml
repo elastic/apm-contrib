@@ -20,6 +20,7 @@ filebeat.inputs:
   fields_under_root: true
   fields:
     service.name: ${service_name}
+    service.environment: ${service_environment}
     event.dataset: ${service_name}
 
 # ============================== Filebeat modules ==============================

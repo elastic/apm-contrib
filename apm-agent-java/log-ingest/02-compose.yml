@@ -22,6 +22,7 @@ services:
       ELASTIC_APM_SECRET_TOKEN: "${apm_secret_token}"
       # APM agent static configuration
       ELASTIC_APM_SERVICE_NAME: app-02
+      ELASTIC_APM_ENVIRONMENT: dev
       ELASTIC_APM_CLOUD_PROVIDER: none
 
   client:

@@ -17,6 +17,7 @@ services:
       ELASTIC_APM_SECRET_TOKEN: "${apm_secret_token}"
       # APM agent static configuration
       ELASTIC_APM_SERVICE_NAME: app-03
+      ELASTIC_APM_ENVIRONMENT: dev
       ELASTIC_APM_CLOUD_PROVIDER: none
       # enable agent ECS reformatting: app.log will be shaded into app.ecs.json
       ELASTIC_APM_LOG_ECS_REFORMATTING: shade
