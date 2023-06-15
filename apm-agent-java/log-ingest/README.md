@@ -108,3 +108,13 @@ APM agent sends the logs directly to APM server (without filebeat) and injects t
 ```
 ./build-and-run.sh 04
 ```
+
+### Otel agent (05)
+
+Application and its configuration are not modified (besides the extra `-javaagent:` JVM argument and environment variables.
+
+Same as 04, but with the OpenTelemetry Java agent.
+
+```
+./build-and-run.sh 05
+```
