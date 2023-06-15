@@ -19,4 +19,4 @@ services:
     container_name: logs-client-05
     build: ./client
     environment:
-      BASE_URL: 'http://fogs-app-05:8080'
+      BASE_URL: 'http://logs-app-05:8080'
