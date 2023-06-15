@@ -21,6 +21,13 @@ filebeat.inputs:
     service.environment: ${service_environment}
     event.dataset: ${service_name}
 
+# =============================== Elastic Cloud ================================
+
+cloud.id: "${cloud_id:CHANGEME}"
+cloud.auth: "${cloud_auth:CHANGEME}"
+
+# ================================== Outputs ===================================
+
 output.elasticsearch:
   hosts: [ "https://${elasticsearch_host:CHANGEME}" ]
   pipeline: log-ingest-plaintext
