@@ -3,7 +3,7 @@
 javaagent_opt=''
 if [[ '' != "${OTEL_EXPORTER_OTLP_ENDPOINT}" ]]; then
     # using opentelemetry java agent
-    javaagent_opt='-javaagent:/otel-agent.jar -Dotel.javaagent.debug=true'
+    javaagent_opt='-javaagent:/otel-agent.jar'
 else
     if [[ '' != "${ELASTIC_APM_SERVICE_NAME}" ]]; then
         # using elastic java agent
