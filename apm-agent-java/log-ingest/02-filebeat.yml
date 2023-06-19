@@ -10,20 +10,9 @@ filebeat.inputs:
     - ${app_log}
   parsers:
     - ndjson:
-      overwrite_keys: true
-      add_error_key: true
-      expand_keys: true
-
-# ============================== Filebeat modules ==============================
-
-filebeat.config.modules:
-  path: ${path.config}/modules.d/*.yml
-  reload.enabled: false
-
-# ======================= Elasticsearch template setting =======================
-
-setup.template.settings:
-  index.number_of_shards: 1
+        overwrite_keys: true
+        add_error_key: true
+        expand_keys: true
 
 # =============================== Elastic Cloud ================================
 

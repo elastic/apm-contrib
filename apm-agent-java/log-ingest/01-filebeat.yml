@@ -8,8 +8,6 @@ filebeat.inputs:
   enabled: true
   paths:
     - ${app_log}
-  # exceptions are reported on multiple lines
-  # other examples can be found in doc : https://www.elastic.co/guide/en/beats/filebeat/current/multiline-examples.html#multiline
   parsers:
   - multiline:
       type: pattern
@@ -20,18 +18,8 @@ filebeat.inputs:
   fields_under_root: true
   fields:
     service.name: ${service_name}
+    service.environment: ${service_environment}
     event.dataset: ${service_name}
-
-# ============================== Filebeat modules ==============================
-
-filebeat.config.modules:
-  path: ${path.config}/modules.d/*.yml
-  reload.enabled: false
-
-# ======================= Elasticsearch template setting =======================
-
-setup.template.settings:
-  index.number_of_shards: 1
 
 # =============================== Elastic Cloud ================================
 

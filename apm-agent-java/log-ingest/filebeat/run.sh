@@ -1,4 +1,5 @@
-#!/bin/bash
+
+set -euo pipefail
 
 # create/update our ingest pipeline
 curl \

@@ -19,6 +19,7 @@ services:
       ELASTIC_APM_SECRET_TOKEN: "${apm_secret_token}"
       # APM agent static configuration
       ELASTIC_APM_SERVICE_NAME: app-01
+      ELASTIC_APM_ENVIRONMENT: dev
       ELASTIC_APM_CLOUD_PROVIDER: none
 
   client:
@@ -45,6 +46,8 @@ services:
       app_log: /var/log/app/app.log
       # name of the service, should be equal to ELASTIC_APM_SERVICE_NAME
       service_name: app-01
+      # environment of the service, should be equal to ELASTIC_APM_ENVIRONMENT
+      service_environment: dev
 
 volumes:
   shared-volume-01:
