@@ -6,7 +6,7 @@ services:
     container_name: logs-app-05
     build: ./app
     ports:
-      - '8084:8080'
+      - '8085:8080'
     environment:
       OTEL_RESOURCE_ATTRIBUTES: "service.name=app-05,service.version=1.0,deployment.environment=dev"
       OTEL_EXPORTER_OTLP_ENDPOINT: "${apm_server_url}"
