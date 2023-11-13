@@ -16,4 +16,9 @@ After importing, visit the [Dashboard](https://www.elastic.co/guide/en/kibana/cu
 List provided here may contain dashboards for metrics that are the same across different
 languages (semantic convention is shared) and also language specific ones (like JVM metrics).
 
-- [**otel-memory-metrics-8.x.ndjson**](otel-memory-metrics-8.x.ndjson) (when using APM Server 8.x)
+- [**otel-memory-metrics-8.x.ndjson**](otel-memory-metrics-8.x.ndjson). Dashboard exported from an
+Elastic deployment with verison `v8.10.2`. The dashboard contains two panels to display the following memory metrics.
+  - `system.memory.usage` showing the amount af free/used bytes.
+  - `system.memory.utilization` showing the percentage of memory being used.
+
+![memory_metrics_dashboard](../assets/otel-dashboard-memory-metrics.png)
