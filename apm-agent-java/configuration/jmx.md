@@ -71,3 +71,12 @@ TODO
 ## Oracle Weblogic
 
 TODO
+
+## Database connection pools
+### HikariCP
+
+Agent `capture_jmx_metrics` value to use:
+```
+object_name[com.zaxxer.hikari:type=Pool (poolName)] attribute[IdleConnections] attribute[ActiveConnections] attribute[TotalConnections] attribute[ThreadsAwaitingConnection]
+```
+where `poolName` is a name you can set on the HikariConfig using setPoolName("foo"), or the auto-generated name (e.g. HikariPool-1).
